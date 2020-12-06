@@ -33,6 +33,7 @@ class NumEncoding:
                 else:
                     c_begin = 'А'
             n += str(cls._chars[c_begin] + ord(c) - ord(c_begin) + 100)[1:]
+            # TODO Добавить обработку цифр
         return n
 
     @classmethod
