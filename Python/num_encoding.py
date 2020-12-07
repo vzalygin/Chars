@@ -16,24 +16,23 @@ class NumEncoding:
                 n += str(100+cls._chars.get(c))[1:]
                 continue
 
-            if ord(c.lower()) - ord('a') < 28:  # английские
+            if 0 <= ord(c.lower()) - ord('a') < 28:  # английские
                 if lang_type != 1:
                     lang_type = 1
                     n += str(cls._lang_change+100)[1:]
-                if c.islower():
-                    c_begin = 'a'
-                else:
-                    c_begin = 'A'
-            else:  # ord(c.lower()) - ord('а') < 32:  # русские
+                if c.islower(): c_begin = 'a'
+                else: c_begin = 'A'
+                n += str(cls._chars[c_begin] + ord(c) - ord(c_begin) + 100)[1:]
+            elif 0 <= ord(c.lower()) - ord('а') < 32:  # русские
                 if lang_type != 0:
                     lang_type = 0
-                    n += cls._lang_change
-                if c.islower():
-                    c_begin = 'а'
-                else:
-                    c_begin = 'А'
-            # TODO Добавить обработку цифр
-            n += str(cls._chars[c_begin] + ord(c) - ord(c_begin) + 100)[1:]
+                    n += str(cls._lang_change+100)[1:]
+                if c.islower(): c_begin = 'а'
+                else: c_begin = 'А'
+                n += str(cls._chars[c_begin] + ord(c) - ord(c_begin) + 100)[1:]
+            else:  # цифры
+                c_begin = '0'
+                n += str(cls._chars[c_begin] + int(c) + 100)[1:]
         return n
 
     @classmethod
@@ -45,7 +44,8 @@ class NumEncoding:
             c = int(n[0] + n[1])
             n = n[2:]
             if c == cls._lang_change:
-                lang_type = -lang_type
+                if lang_type != 0: lang_type = 0
+                else: lang_type = 1
                 continue
 
             if not cls._chars_reverse.get(c) is None:
@@ -55,6 +55,7 @@ class NumEncoding:
                 continue
 
             if c < cls._chars['A']:  # буква маленькая
+                # TODO избавится от 0 и 32 (вынести как-нибудь в метод?)
                 s += chr(c + ord(cls._chars_reverse[0][lang_type]))
             elif c < cls._chars['0']:
                 s += chr(c + ord(cls._chars_reverse[32][lang_type]) - 32)
