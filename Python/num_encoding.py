@@ -3,8 +3,13 @@ class NumEncoding:
               '.': 75, ',': 76, '!': 77, '?': 78, "'": 79, ' ': 80}
     _chars_reverse = {0: ['а', 'a'], 32: ['А', 'A'], 64: ['0'],
                       75: ['.'], 76: [','], 77: ['!'], 78: ['?'], 79: ["'"], 80: [' ']}
+
     _lang_change = 74
     _default_lang_type = 0
+    _lower_letter = 0
+    _upper_letter = 32
+    _ru_letters = ['а', 'А']
+    _en_letters = ['a', 'A']
 
     @classmethod
     def encoding(cls, s: str):
