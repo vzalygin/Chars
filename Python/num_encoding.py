@@ -67,14 +67,4 @@ class NumEncoding:
                 s += str(c - cls._digit_letter)
             else:
                 raise Exception('invalid character number ' + str(n))
-
-            # if c < cls._chars['A']:  # буква маленькая
-            #     # TODO избавится от 0 и 32 (вынести как-нибудь в метод?)
-            #     s += chr(c + ord(cls._chars_reverse[0][lang_type]))
-            # elif c < cls._chars['0']:
-            #     s += chr(c + ord(cls._chars_reverse[32][lang_type]) - 32)
-            # else:  # if c >= cls._chars['0']:  # цифра
-            #     s += str(c - cls._chars['0'])
-        if len(n) == 1:
-            raise Warning('incomplete sequence decryption')
         return s
