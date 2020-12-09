@@ -5,7 +5,7 @@ import ciphers  # дополнительные шифры
 
 
 def encryption():
-    text = "привет"
+    text = "Привет"
     enc = Num.encoding(text)
     dec = Num.decoding(enc)
     print(text)
