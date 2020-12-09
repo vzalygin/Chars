@@ -5,6 +5,26 @@ import ciphers  # дополнительные шифры
 
 
 def encryption():
-    print()
-    for x in range(700, 1000):
-        print('W' + chr(x), ' ' + chr(x))
+    s = "aa"
+    print(s)
+    n_s = '10' + NumEncoding.encoding(s)
+    print(n_s)
+    e_s = InsertEncoding.encryption("«Мой дядя самых честных правил,\n \
+Когда не в шутку занемог,\n \
+Он уважать себя заставил\n \
+И лучше выдумать не мог.\n \
+Его пример другим наука;\n \
+Но, боже мой, какая скука\n \
+С больным сидеть и день и ночь,\n \
+Не отходя ни шагу прочь!\n \
+Какое низкое коварство\n \
+Полуживого забавлять,\n \
+Ему подушки поправлять,\n \
+Печально подносить лекарство,\n \
+Вздыхать и думать про себя:\n \
+Когда же черт возьмет тебя!»", int(n_s))
+    print(e_s)
+    d_s = InsertEncoding.decryption(e_s)
+    print(d_s)
+    dn_s = NumEncoding.decoding(str(d_s))
+    print(dn_s)
