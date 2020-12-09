@@ -1,4 +1,4 @@
-class Num:
+class NumEncoding:
     _chars = {'.': 75, ',': 76, '!': 77, '?': 78, "'": 79, ' ': 80}
     _chars_reverse = {75: '.', 76: ',', 77: '!', 78: '?', 79: "'", 80: ' '}
     _lang_change = 74
