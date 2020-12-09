@@ -5,9 +5,9 @@ import ciphers  # дополнительные шифры
 
 
 def encryption():
-    s = "aa"
+    s = "Кодируемся в Евгении Онегине"
     print(s)
-    n_s = '10' + NumEncoding.encoding(s)
+    n_s = '1' + NumEncoding.encoding(s)
     print(n_s)
     e_s = InsertEncoding.encryption("«Мой дядя самых честных правил,\n \
 Когда не в шутку занемог,\n \
@@ -26,5 +26,6 @@ def encryption():
     print(e_s)
     d_s = InsertEncoding.decryption(e_s)
     print(d_s)
-    dn_s = NumEncoding.decoding(str(d_s))
+    d_s = str(d_s)[1:]  # TODO стнадартизировать вывод и ввод (int или str)
+    dn_s = NumEncoding.decoding(d_s)
     print(dn_s)
