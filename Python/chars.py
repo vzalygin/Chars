@@ -5,9 +5,6 @@ import ciphers  # дополнительные шифры
 
 
 def encryption():
-    el = ('̾', '̽', '̷', '̴', '̶', '̳', '͓')
-    for x in el:
-        print(ord(x), end=' ')
     print()
     for x in range(700, 1000):
-        print(chr(x), end='+')
+        print('W' + chr(x), ' ' + chr(x))
