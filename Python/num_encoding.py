@@ -36,12 +36,13 @@ class NumEncoding:
                 n += str(int(c)+cls._digit_letter + 100)[1:]
             else:
                 raise Exception('char ' + c + ' not found')
-        return str(n)
+        return '1' + str(n)
 
     @classmethod
     def decoding(cls, n):
         """Преобразует исходную строку из чисел в нормальный вид"""
         s = ''
+        n = n[1:]
         lang_type = cls._default_lang_type
         while len(n) > 1:
             c = int(n[0] + n[1])

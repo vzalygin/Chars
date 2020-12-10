@@ -7,9 +7,9 @@ import ciphers  # дополнительные шифры
 def encryption():
     s = "Кодируемся в Евгении Онегине"
     print(s)
-    n_s = '1' + NumEncoding.encoding(s)
+    n_s = NumEncoding.encoding(s)
     print(n_s)
-    e_s = InsertEncoding.encryption("«Мой дядя самых честных правил,\n \
+    e_s = InsertEncoding.encryption("«Мой дядя самых честных правил,\n\
 Когда не в шутку занемог,\n\
 Он уважать себя заставил\n\
 И лучше выдумать не мог.\n\
@@ -22,10 +22,9 @@ def encryption():
 Ему подушки поправлять,\n\
 Печально подносить лекарство,\n\
 Вздыхать и думать про себя:\n\
-Когда же черт возьмет тебя!»", n_s)
+Когда же черт возьмет тебя!»", n_s)[0]
     print(e_s)
-    d_s = InsertEncoding.decryption(e_s)[1:]
+    d_s = InsertEncoding.decryption(e_s)
     print(d_s)
     dn_s = NumEncoding.decoding(d_s)
     print(dn_s)
-    # TODO покрыть всё ислкючениями (insert)
