@@ -7,7 +7,6 @@ class InsertEncoding:
            '̥', '̣', '̠', '̟', '̞', '̝', '̛', '̚', '̕', '̔', '̓', '̑', '̏', '̉', '̶')
     _l_el = len(_el)
     _super_secret = '͏'
-    _tmp = []
 
     @classmethod
     def _sys10toN(cls, n: int):
@@ -27,14 +26,16 @@ class InsertEncoding:
         return n
 
     @classmethod
-    def encryption(cls, container: str, mess: int, cluster=-1):
+    def encryption(cls, container: str, mess: str, cluster=-1):
         """Алгоритм вставки сообщения в контейнер. В параметрах: контейнер, сообщение и максимальное количество символов
           между вставками (по умолчанию вставки растягиваются на длинну контейнера). Возвращает заполненный контейнер.
           В случае, если сообщение невозможно полностью вставить в текст, возвращается строка, сигнализирующая об этом"""
         # TODO сделать shift "умным" (чтобы по максимуму использовал текст)
         enc_mess = ''
-        arr_mess = cls._sys10toN(mess)
-        cls._tmp = arr_mess[:]
+        try:
+            arr_mess = cls._sys10toN(int(mess))
+        except Exception:
+            raise Exception('Failed to translate sequence to N sys')
         if cluster == -1:
             cluster = len(container) // len(str(mess))
         curr_syms = ''
@@ -48,7 +49,7 @@ class InsertEncoding:
                 enc_mess += curr_syms[:n] + cls._el[arr_mess[0]] + curr_syms[n:]
                 arr_mess = arr_mess[1:]
                 curr_syms = ''
-        return enc_mess
+        return str(enc_mess)
 
     @classmethod
     def decryption(cls, enc_mess):
@@ -56,10 +57,11 @@ class InsertEncoding:
         for sym in enc_mess:
             if cls._el.count(sym) > 0:
                 arr_mess.append(cls._el.index(sym))
-        print(cls._tmp)
-        print(arr_mess)
-        mess = cls._sysNto10(arr_mess)
-        return mess
+        try:
+            mess = cls._sysNto10(arr_mess)
+        except Exception:
+            raise Exception('Failed to translate sequence to 10 sys')
+        return str(mess)
 
     @classmethod
     def caesar(cls, s, k):

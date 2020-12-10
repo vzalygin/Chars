@@ -36,7 +36,7 @@ class NumEncoding:
                 n += str(int(c)+cls._digit_letter + 100)[1:]
             else:
                 raise Exception('char ' + c + ' not found')
-        return n
+        return str(n)
 
     @classmethod
     def decoding(cls, n):
@@ -67,4 +67,4 @@ class NumEncoding:
                 s += str(c - cls._digit_letter)
             else:
                 raise Exception('invalid character number ' + str(n))
-        return s
+        return str(s)
