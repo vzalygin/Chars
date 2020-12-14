@@ -31,9 +31,11 @@ def func():
 
 
 def encryption():
-    m = '123'
-    e_m = ReplaceEncoding.encoding('Съешь этих мягких французских булок да выпей чаю.', m)
-    d_m = ReplaceEncoding.decoding(e_m)
+    m = 'Привет'
+    e_m = ReplaceEncoding.encoding('Съешь этих мягких французских булок да выпей чаю. '
+                                   'Съешь этих мягких французских булок да выпей чаю. '
+                                   'Hello my name is Bob. ', NumEncoding.encoding(m))
+    d_m = NumEncoding.decoding(ReplaceEncoding.decoding(e_m))
     print(m)
     print(e_m)
     print(d_m)
