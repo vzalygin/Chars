@@ -26,7 +26,7 @@ class InsertEncoding:
         return n
 
     @classmethod
-    def encryption(cls, container: str, mess: str, cluster=-1):
+    def encoding(cls, container: str, mess: str, cluster=-1):
         """Алгоритм вставки сообщения в контейнер. В параметрах: контейнер, сообщение и максимальное количество символов
           между вставками (по умолчанию вставки растягиваются на длинну контейнера). Возвращает заполненный контейнер.
           В случае, если сообщение невозможно полностью вставить в текст, возвращается строка, сигнализирующая об этом"""
@@ -54,9 +54,9 @@ class InsertEncoding:
         return str(enc_mess), is_fully_encoded
 
     @classmethod
-    def decryption(cls, enc_mess):
+    def decoding(cls, container: str):
         arr_mess = []
-        for sym in enc_mess:
+        for sym in container:
             if cls._el.count(sym) > 0:
                 arr_mess.append(cls._el.index(sym))
         try:
