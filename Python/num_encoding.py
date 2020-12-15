@@ -35,7 +35,7 @@ class NumEncoding:
             elif c.isdigit():
                 n += str(int(c)+cls._digit_letter + 100)[1:]
             else:
-                raise Exception('char ' + c + ' not found')
+                raise Exception('Char ' + c + ' not found')
         return '1' + str(n)
 
     @classmethod
@@ -67,5 +67,5 @@ class NumEncoding:
             elif cls._digit_letter <= c < cls._digit_letter+10:
                 s += str(c - cls._digit_letter)
             else:
-                raise Exception('invalid character number ' + str(n))
+                raise Exception('Invalid character number ' + str(n))
         return str(s)

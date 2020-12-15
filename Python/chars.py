@@ -4,38 +4,58 @@ from insert_encoding import InsertEncoding  # алгоритм вставки
 import ciphers  # дополнительные шифры
 
 
-def func():
-    s = "Кодируемся в Евгении Онегине"
-    print(s)
-    n_s = NumEncoding.encoding(s)
-    print(n_s)
-    e_s = InsertEncoding.encoding("«Мой дядя самых честных правил,\n\
-    Когда не в шутку занемог,\n\
-    Он уважать себя заставил\n\
-    И лучше выдумать не мог.\n\
-    Его пример другим наука;\n\
-    Но, боже мой, какая скука\n\
-    С больным сидеть и день и ночь,\n\
-    Не отходя ни шагу прочь!\n\
-    Какое низкое коварство\n\
-    Полуживого забавлять,\n\
-    Ему подушки поправлять,\n\
-    Печально подносить лекарство,\n\
-    Вздыхать и думать про себя:\n\
-    Когда же черт возьмет тебя!»", n_s)[0]
-    print(e_s)
-    d_s = InsertEncoding.decoding(e_s)
-    print(d_s)
-    dn_s = NumEncoding.decoding(d_s)
-    print(dn_s)
+def encryption(container: str, mess: str, replace_rule=0, numbers_of_ciphers=[]):
+    tmp = container
+    for cipher in numbers_of_ciphers:
+        # TODO добавить работу с шифрами
+        pass
+
+    try:
+        mess = NumEncoding.encoding(mess)
+        m_sum = _sum_of(mess)
+    except Exception as e:
+        print(f'Не удалось перевести сообщение в последовательность.\n {e}')
+        return tmp
+
+    try:
+        container = InsertEncoding.encoding(container, mess)
+    except Exception as e:
+        print(f'Не удалось провести вставку в контейнере.\n {e}')
+        return tmp
+
+    try:
+        container = ReplaceEncoding.encoding(container, m_sum, rule=replace_rule)
+    except Exception as e:
+        print(f'Не удалось провести замену в контейнере.\n {e}')
+        return tmp
+
+    return container
 
 
-def encryption():
-    m = 'Привет'
-    e_m = ReplaceEncoding.encoding('Съешь этих мягких французских булок да выпей чаю. '
-                                   'Съешь этих мягких французских булок да выпей чаю. '
-                                   'Hello my name is Bob. ', NumEncoding.encoding(m))
-    d_m = NumEncoding.decoding(ReplaceEncoding.decoding(e_m))
-    print(m)
-    print(e_m)
-    print(d_m)
+def decryption(container: str, replace_rule=0, numbers_of_ciphers=[]):
+    mess = InsertEncoding.decoding(container)
+    n_mess = ReplaceEncoding.decoding(container, rule=replace_rule)
+    if n_mess != _sum_of(mess):
+        print('Контрольная сумма неверна.')
+    for i in range(len(numbers_of_ciphers)-1, -1, -1):
+        cipher = numbers_of_ciphers[i]
+        # TODO добавить работу с шифрами
+        pass
+    mess = NumEncoding.decoding(mess)
+    return mess
+
+
+def _sum_of(n: str):
+    return str(sum([int(x) for x in n]))
+
+
+def get_info_ciphers():
+    pass
+
+
+def get_info_replace_rules():
+    pass
+
+
+def set_settings():
+    pass

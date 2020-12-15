@@ -48,14 +48,14 @@ class ReplaceEncoding:
         return n
 
     @classmethod
-    def encoding(cls, container: str, mess: str):
+    def encoding(cls, container: str, mess: str, rule=0):
         mess = cls._sys10to2(int(mess))
         res = ''
         for i in range(len(container) - 1):
             c = container[i]
             usable, lang, n = cls._check_usability(c)
             if usable:
-                if cls._rule(container[i - 1], container[i + 1], lang, 0):
+                if cls._rule(container[i - 1], container[i + 1], lang, rule):
                     if len(mess) > 0:
                         if mess[0] == '0': res += cls._el[n][0]  # замена на русскую букву
                         else: res += cls._el[n][1]  # замена на английскую букву
@@ -64,15 +64,17 @@ class ReplaceEncoding:
                         res += cls._el[n][0]  # иначе по нулям
             else:
                 res += c
+        if len(mess) > 0:
+            raise Exception('Message for encryption is too long')
         return res
 
     @classmethod
-    def decoding(cls, container: str):
+    def decoding(cls, container: str, rule=0):
         res = ''
         for i in range(len(container)-1):
             usable, lang, n = cls._check_usability(container[i])
             if usable:
-                if cls._rule(container[i-1], container[i+1], -1, 0):
+                if cls._rule(container[i-1], container[i+1], -1, rule):
                     res += str(lang)
         last = res.rfind('1')
         res = res[0:last+1]

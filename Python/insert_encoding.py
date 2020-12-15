@@ -48,10 +48,9 @@ class InsertEncoding:
                 enc_mess += curr_syms[:n] + cls._el[arr_mess[0]] + curr_syms[n:]
                 arr_mess = arr_mess[1:]
                 curr_syms = ''
-        is_fully_encoded = True
         if len(arr_mess) != 0:
-            is_fully_encoded = False
-        return str(enc_mess), is_fully_encoded
+            raise Exception('Message for encryption is too long')
+        return str(enc_mess)
 
     @classmethod
     def decoding(cls, container: str):
