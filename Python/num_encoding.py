@@ -67,5 +67,5 @@ class NumEncoding:
             elif cls._digit_letter <= c < cls._digit_letter+10:
                 s += str(c - cls._digit_letter)
             else:
-                raise Exception('Invalid character number ' + str(n))
+                raise Exception('Invalid character number ' + str(c))
         return str(s)
