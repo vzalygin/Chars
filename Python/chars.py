@@ -4,7 +4,14 @@ from insert_encoding import InsertEncoding  # алгоритм вставки
 import ciphers  # дополнительные шифры
 
 
-def encryption(container: str, mess: str, replace_rule=0, numbers_of_ciphers=[]):
+def encryption(container: str, mess: str, encoding_rule=0, replace_rule=0, numbers_of_ciphers=[]):
+    """container - текст-контейнер
+    mess - секретное сообщение
+    encoding_rule - правило шифрования
+    (0: замена - контрольная сумма, вставка - секрет)
+    replace_rule - правило замены
+    (0: стандартное правило)
+    numbers_of_ciphers - инфо об используемых шфирах"""
     try:
         mess = NumEncoding.encoding(mess)
         m_sum = _sum_of(mess)
