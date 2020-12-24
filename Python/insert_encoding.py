@@ -30,6 +30,8 @@ class InsertEncoding:
         """Алгоритм вставки сообщения в контейнер. В параметрах: контейнер, сообщение и максимальное количество символов
           между вставками (по умолчанию вставки растягиваются на длинну контейнера). Возвращает заполненный контейнер.
           В случае, если сообщение невозможно полностью вставить в текст, возвращается строка, сигнализирующая об этом"""
+        if len(mess) == 0:
+            return container
         enc_mess = ''
         try:
             arr_mess = cls._sys10toN(int(mess))
@@ -49,7 +51,7 @@ class InsertEncoding:
                 arr_mess = arr_mess[1:]
                 curr_syms = ''
         if len(arr_mess) != 0:
-            raise Exception('Message for encryption is too long')
+            raise Exception('Message for encryption is too long (insert)')
         return str(enc_mess)
 
     @classmethod
