@@ -1,4 +1,12 @@
 import chars
+from num_encoding import NumEncoding  # перевод секрета в числа
+from replace_encoding import ReplaceEncoding  # алгоритм замены
+from insert_encoding import InsertEncoding  # алгоритм вставки
+from ciphers import Des # дополнительные шифры
+# TODO различные версии работы алгоритма
+# TODO 2. Шифрование начала сообщения заменой, а потом вставкой
+# TODO 3. Шифрование только вставкой
+# TODO 4. Шифрование только заменой
 
 
 def ui():
@@ -48,4 +56,29 @@ def ui():
         _ = input()
 
 
-ui()
+def main():
+    #         c = "«Мой дядя самых честных правил,\n\
+# Когда не в шутку занемог,\n\
+# Он уважать себя заставил\n\
+# И лучше выдумать не мог.\n\
+# Его пример другим наука;\n\
+# Но, боже мой, какая скука\n\
+# С больным сидеть и день и ночь,\n\
+# Не отходя ни шагу прочь!\n\
+# Какое низкое коварство\n\
+# Полуживого забавлять,\n\
+# Ему подушки поправлять,\n\
+# Печально подносить лекарство,\n\
+# Вздыхать и думать про себя:\n\
+# Когда же черт возьмет тебя!»"
+#         m = '1гл Евгения Онегина.'
+#         print(len(c), len(m))
+#         e_m = chars.encryption(c, m, encoding_rule=3, replace_rule=0)
+#         d_m = chars.decryption(e_m, encoding_rule=3, replace_rule=0)
+#         print(m)
+#         print(e_m)
+#         print(d_m)
+    ui()
+
+
+main()
