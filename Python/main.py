@@ -48,4 +48,5 @@ def ui():
         _ = input()
 
 
+print(NumEncoding.encoding('Привет, мир!'))
 ui()
