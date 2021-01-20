@@ -20,6 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="613e5443-18e5-480f-b0e7-cef3de195947" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/NumEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaLibPackage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -1,4 +1,5 @@
-import chars
+#import chars
+from num_encoding import NumEncoding
 
 
 def ui():
@@ -48,5 +49,7 @@ def ui():
         _ = input()
 
 
-print(NumEncoding.encoding('Привет, мир!'))
-ui()
+print(NumEncoding.encoding("Hello world! Привет, мир!"))
+print("1743904111114802214171103778074471608020518768012081677");
+print(NumEncoding.decoding("1743904111114802214171103778074471608020518768012081677"))
+#ui()
