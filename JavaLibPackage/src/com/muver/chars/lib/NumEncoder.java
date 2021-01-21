@@ -76,7 +76,7 @@ public class NumEncoder {
         String output = "";
         LanguageType lang_type = _default_lang_type;
         for (int i = 1; i < num.length(); i += 2 ) {
-            int n = Integer.parseInt(num.substring(i, i + 2));
+            int n = Integer.parseInt(num.substring(i, i + 1));
             int ch = 0;
             if (n == _lang_change) {
                 if (lang_type == LanguageType.En)

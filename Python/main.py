@@ -1,5 +1,6 @@
-#import chars
-from num_encoding import NumEncoding
+from num_encoding import NumEncoding  # перевод секрета в числа
+from replace_encoding import ReplaceEncoding  # алгоритм замены
+from insert_encoding import InsertEncoding  # алгоритм вставки
 
 
 def ui():
@@ -48,8 +49,6 @@ def ui():
         print('Для продолжения введите любую команду.')
         _ = input()
 
-
-print(NumEncoding.encoding("Hello world! Привет, мир!"))
-print("1743904111114802214171103778074471608020518768012081677");
-print(NumEncoding.decoding("1743904111114802214171103778074471608020518768012081677"))
+print(InsertEncoding.encoding("Somebody was told me that world is gonna roll me... А теперь на русском...", NumEncoding.encoding("Сообщение"), -1))
+print(InsertEncoding.decoding("Someb͘o̕dy was told̛ m̝e that̓ worldͫ is gonna ͤroll m̕e...̚ А ̾теперьͮ на русскͪом..."))
 #ui()

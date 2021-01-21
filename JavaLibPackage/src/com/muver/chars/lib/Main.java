@@ -10,9 +10,17 @@ public class Main {
     static PrintStream output = System.out;
 
     public static void main(String[] args) {
-	    String enc = NumEncoder.encoding("Hello world! Привет, мир!");
-        String dec = NumEncoder.decoding(enc);
-	    output.println(enc);
+        String mess = "ц";
+        output.println(mess);
+        String container = "Somebody was told me that world is gonna roll me... А теперь на русском...";
+        //output.println(container);
+        String num = NumEncoder.encoding(mess);
+        output.println(num);
+	    String text = InsertEncoder.encoding(container, num, -1);
+	    output.println(text);
+	    String dec = InsertEncoder.decoding(text);
 	    output.println(dec);
+	    String dec_mess = NumEncoder.decoding("122");
+	    output.println(dec_mess);
     }
 }
