@@ -8,27 +8,27 @@ public class InsertEncoder {
             '̥', '̣', '̠', '̟', '̞', '̝', '̛', '̚', '̕', '̔', '̓', '̑', '̏', '̉', '̶'};
     private static final int N = CHARS.length;
 
-    private static ArrayList<Integer> _to_n_sys(String mess) {
-        ArrayList<Integer> n_sys = new ArrayList<>();
+    private static Stack<Integer> to_n_sys(String mess) {
+        Stack<Integer> n_sys = new Stack<>();
         while (mess.length() > 0) {
             int t_sys = Integer.parseInt("1" + mess.substring(0, Math.min(9, mess.length())));
             while (t_sys > 0) {
-                n_sys.add(t_sys % N);
+                n_sys.push(t_sys % N);
                 t_sys /= N;
             }
             mess = mess.substring(Math.min(9, mess.length()));
         }
-        System.out.println(n_sys.size());
         return n_sys;
     }
 
-    private static String _to_t_sys(ArrayList<Integer> n_sys) {
+    private static String to_t_sys(Stack<Integer> n_sys) {
         String output = "";
         long t_sys = 0;
         int j = -1;
-        for (int i = 0; i < n_sys.size(); i += 1) {
+        final int length = n_sys.size();
+        for (int i = 0; i < length; i += 1) {
             j += 1;
-            t_sys += n_sys.get(i)*(Math.pow(N, j));
+            t_sys += n_sys.pop()*(Math.pow(N, j));
             if (Long.toString(t_sys).length() > 9) {
                 output += Long.toString(t_sys).substring(1);
                 t_sys = 0;
@@ -42,7 +42,7 @@ public class InsertEncoder {
     public static String encoding(String container, String message, int cluster_size) {
         String output = "";
 
-        ArrayList<Integer> insert = _to_n_sys(message);
+        Stack<Integer> insert = to_n_sys(message);
         if (cluster_size == -1)
             cluster_size = container.length() / insert.size();
         while (insert.size() > 0) {
@@ -50,10 +50,9 @@ public class InsertEncoder {
               int position = Math.abs(new Random().nextInt() % cluster_size);
               for (int j = 0; j < cluster_size; j += 1) {
                   if (position == j)
-                      output += CHARS[insert.get(0)];
+                      output += CHARS[insert.pop()];
                   output += cluster[j];
               }
-              insert.remove(0);
               container = container.substring(cluster_size);
         }
         output += container;
@@ -72,12 +71,12 @@ public class InsertEncoder {
     }
 
     public static String decoding(String container) {
-        ArrayList<Integer> num = new ArrayList<>();
+        Stack<Integer> num = new Stack<>();
         for (int i = 0; i < container.length(); i += 1) {
             int index = indexOf(container.charAt(i));
             if (index != -1)
-                num.add(index);
+                num.push(index);
         };
-        return _to_t_sys(num);
+        return to_t_sys(num);
     }
 }
