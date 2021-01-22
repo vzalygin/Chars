@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="613e5443-18e5-480f-b0e7-cef3de195947" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/InsertEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JavaLibPackage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaLibPackage/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaLibPackage/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/InsertEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/InsertEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/NumEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaLibPackage/src/com/muver/chars/lib/NumEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>

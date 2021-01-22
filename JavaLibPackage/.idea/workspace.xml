@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7bcd42-61bc-4e92-8679-019f5c061800" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaLibPackage.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaLibPackage.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/NumEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/NumEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Python/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,42 +97,50 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="268" key="GridCell.Tab.0.bottom" timestamp="1611253355026">
+    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1611324734704">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="268" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611253355026" />
-    <state width="1493" height="268" key="GridCell.Tab.0.center" timestamp="1611253355025">
+    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611324734704" />
+    <state width="1493" height="242" key="GridCell.Tab.0.bottom" timestamp="1611338735418">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="268" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611253355025" />
-    <state width="1493" height="268" key="GridCell.Tab.0.left" timestamp="1611253355025">
+    <state width="1493" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611338735418" />
+    <state width="1493" height="242" key="GridCell.Tab.0.center" timestamp="1611338735418">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="268" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611253355025" />
-    <state width="1493" height="268" key="GridCell.Tab.0.right" timestamp="1611253355026">
+    <state width="1493" height="242" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611338735418" />
+    <state width="1493" height="242" key="GridCell.Tab.0.left" timestamp="1611338735417">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="268" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611253355026" />
-    <state width="1493" height="194" key="GridCell.Tab.1.bottom" timestamp="1611253283948">
+    <state width="1493" height="242" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611338735417" />
+    <state width="1493" height="242" key="GridCell.Tab.0.right" timestamp="1611338735418">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611253283948" />
-    <state width="1493" height="194" key="GridCell.Tab.1.center" timestamp="1611253283948">
+    <state width="1493" height="242" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611338735418" />
+    <state width="1493" height="194" key="GridCell.Tab.1.bottom" timestamp="1611338681858">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611253283948" />
-    <state width="1493" height="194" key="GridCell.Tab.1.left" timestamp="1611253283948">
+    <state width="1493" height="194" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611338681858" />
+    <state width="1493" height="194" key="GridCell.Tab.1.center" timestamp="1611338681858">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611253283948" />
-    <state width="1493" height="194" key="GridCell.Tab.1.right" timestamp="1611253283948">
+    <state width="1493" height="194" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611338681858" />
+    <state width="1493" height="194" key="GridCell.Tab.1.left" timestamp="1611338681858">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611253283948" />
+    <state width="1493" height="194" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611338681858" />
+    <state width="1493" height="194" key="GridCell.Tab.1.right" timestamp="1611338681858">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="194" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611338681858" />
     <state x="498" y="301" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1611248628873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="301" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1611248628873" />
+    <state x="209" y="0" key="new project wizard" timestamp="1611324736834">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="209" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1611324736834" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1611248365674">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -149,9 +154,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/muver/chars/lib/NumEncoder.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="18" />
+          <line>32</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

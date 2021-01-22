@@ -49,6 +49,6 @@ def ui():
         print('Для продолжения введите любую команду.')
         _ = input()
 
-print(InsertEncoding.encoding("Somebody was told me that world is gonna roll me... А теперь на русском...", NumEncoding.encoding("Сообщение"), -1))
-print(InsertEncoding.decoding("Someb͘o̕dy was told̛ m̝e that̓ worldͫ is gonna ͤroll m̕e...̚ А ̾теперьͮ на русскͪом..."))
+
+print(NumEncoding.decoding("1471608020518"))
 #ui()
