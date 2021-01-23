@@ -53,9 +53,6 @@ public class ReplaceEncoder {
                                                             // или 0 - русская бука, 1 - английская буква?
         String output = "";
         ArrayDeque<Integer> nums = to_2_sys(mess);
-        for (int a: nums)
-            System.out.print(a);
-        System.out.println();
         for (char ch:container.toCharArray()) {
             int i = check_usability(ch);
             if (i != -1) {
@@ -72,7 +69,6 @@ public class ReplaceEncoder {
     }
 
     public static String decoding(String container) { // TODO идея для проверки вместимости:
-        // прогнать этот алгоритм, но всё время добавляя 1, тем самым получив максимальное число.
         String output = "";
         ArrayDeque<Integer> nums = new ArrayDeque<>();
         for (char ch: container.toCharArray()) {
@@ -85,10 +81,18 @@ public class ReplaceEncoder {
                     }
             }
         }
-        for (int a: nums)
-            System.out.print(a);
-        System.out.println();
         output = to_10_sys(nums);
         return output;
+    }
+
+    public static String maxCapacity(String container) {
+        ArrayDeque<Integer> nums = new ArrayDeque<>();
+        for (char ch: container.toCharArray()) {
+            int i = check_usability(ch);
+            if (i != -1) {
+                nums.add(1);
+            }
+        }
+        return to_10_sys(nums);
     }
 }

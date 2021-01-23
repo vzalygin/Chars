@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64.Encoder;
 import java.util.Scanner;
 
 public class Main {
@@ -17,11 +18,14 @@ public class Main {
 
     // TODO Когда будут готовы все модули, покрыть всё исключениями
     public static void main(String[] args) throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
-        String mess = "Hello!";
-        String key = "12341234";
-        String encoded = DesEncoder.encoding(mess, key);
-        String decoded = DesEncoder.decoding(encoded, key);
-        System.out.println(mess);
-        System.out.println(decoded);
+        String container = "лолололололололололололололололололололололололололололололололололололололололололaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String message = "He";
+        String key = "12331244";
+        EncodingType type = EncodingType.OnlyReplace;
+        String text = CharEncoder.encoding(container, message, key, type);
+        String dec = CharEncoder.decoding(text, key, type);
+        System.out.println(text);
+        System.out.println(dec);
+        System.out.println(ReplaceEncoder.maxCapacity(container));
     }
 }
