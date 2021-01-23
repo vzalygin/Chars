@@ -71,7 +71,8 @@ public class ReplaceEncoder {
         return output;
     }
 
-    public static String decoding(String container) {
+    public static String decoding(String container) { // TODO идея для проверки вместимости:
+        // прогнать этот алгоритм, но всё время добавляя 1, тем самым получив максимальное число.
         String output = "";
         ArrayDeque<Integer> nums = new ArrayDeque<>();
         for (char ch: container.toCharArray()) {
