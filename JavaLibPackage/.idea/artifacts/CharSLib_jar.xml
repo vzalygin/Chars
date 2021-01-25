@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CharSLib:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CharSLib_jar</output-path>
+    <root id="archive" name="CharSLib.jar">
+      <element id="module-output" name="JavaLibPackage" />
+    </root>
+  </artifact>
+</component>

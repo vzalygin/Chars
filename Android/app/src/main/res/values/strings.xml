@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">CharS</string>
+    <string name="Execute">Выполнить</string>
+    <string name="OperationMode">Режимы работы</string>
+    <string name="InsertMode">Вставка</string>
+    <string name="ExtractionMode">Извлечение</string>
+    <string name="ContainerText">Текст-контейнер</string>
+    <string name="MessageText">Секретное сообщение</string>
+    <string name="KeyText">Ключ шифрования</string>
+    <string name="Type">Режимы работы</string>
+    <string name="StandardMode">Стандартный режим</string>
+    <string name="MaxCapacityMode">Режим максимальной вместимости</string>
+    <string name="InsertOnlyMode">Только алгоритм вставки</string>
+    <string name="ReplaceOnlyMode">Только алгоритм замены</string>
+    <string name="ResultText">Результат</string>
 </resources>
