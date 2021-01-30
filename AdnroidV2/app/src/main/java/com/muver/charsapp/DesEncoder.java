@@ -1,4 +1,4 @@
-package com.muver.chars;
+package com.muver.charsapp;
 
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;

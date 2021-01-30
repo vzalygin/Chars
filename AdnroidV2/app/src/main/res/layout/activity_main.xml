@@ -1,18 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorBackground">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RadioGroup
+            android:id="@+id/operationModeRG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/operationTypeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/OperationMode" />
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/insertRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/InsertMode" />
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/extractRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ExtractionMode" />
+        </RadioGroup>
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/containerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/ContainerText"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/messageText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/MessageText"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/keyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/KeyText"
+            android:inputType="numberSigned" />
+
+        <RadioGroup
+            android:id="@+id/encodingModeRG"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="60dp"
+            tools:layout_editor_absoluteY="456dp">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/encodingText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/EncodingMode" />
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/standardRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/StandardMode"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="201dp" />
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/maxCapacityRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/MaxCapacityMode"
+                tools:layout_editor_absoluteX="39dp"
+                tools:layout_editor_absoluteY="229dp" />
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/insertOnlyRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/InsertOnlyMode" />
+
+            <RadioButton
+                android:layout_marginTop="10dp"
+                android:id="@+id/replaceOnlyRB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ReplaceOnlyMode" />
+        </RadioGroup>
+
+        <Button
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:id="@+id/executeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Execute" />
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/resultText"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/ResultText"
+                android:inputType="textMultiLine|textPersonName" />
+            <ImageButton
+                android:background="@color/colorPrimary"
+                android:id="@+id/shareButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@android:drawable/ic_menu_share" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

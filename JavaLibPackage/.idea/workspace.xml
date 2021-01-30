@@ -25,32 +25,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7bcd42-61bc-4e92-8679-019f5c061800" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/CharSLib/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CharSLib_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/CharSLib_jar/CharSLib.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/JavaLibPackage_jar/JavaLibPackage.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/CharEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/DesEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/EncodingType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/InsertEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/NumEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/ReplaceEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/CharSLib/build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout-v28/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout-v28/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/DesEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/DesEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/EncodingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/EncodingType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/LanguageType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/LanguageType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/NumEncoder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/NumEncoder$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/NumEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/NumEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/ReplaceEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/ReplaceEncoder.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

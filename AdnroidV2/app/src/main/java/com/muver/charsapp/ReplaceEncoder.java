@@ -1,4 +1,4 @@
-package com.muver.chars;
+package com.muver.charsapp;
 
 import java.util.*;
 
@@ -49,8 +49,8 @@ public class ReplaceEncoder {
         return output;
     }
 
-    public static String encoding(String container, String mess) { // 0 - оставление, 1 - замена (текущая версия)
-                                                            // или 0 - русская бука, 1 - английская буква?
+    public static String encoding(String container, String mess) throws TooSmallContainerException { // 0 - оставление, 1 - замена (текущая версия)
+                                                                                                    // или 0 - русская бука, 1 - английская буква?
         String output = "";
         ArrayDeque<Integer> nums = to_2_sys(mess);
         for (char ch:container.toCharArray()) {
@@ -65,6 +65,8 @@ public class ReplaceEncoder {
             else
                 output += ch;
         }
+        if (!nums.isEmpty())
+            throw new TooSmallContainerException();
         return output;
     }
 
