@@ -39,15 +39,15 @@ public class InsertEncoder {
         return output;
     }
 
-    public static String encoding(String container, String message, int cluster_size) {
+    public static String encoding(String container, String message, int cluster_size) throws TooSmallContainerException {
         String output = "";
 
         Stack<Integer> insert = to_n_sys(message);
         if (cluster_size == -1)
-            cluster_size = container.length() / insert.size();
-        while (insert.size() > 0) {
+            cluster_size = Math.max(container.length() / insert.size(), 1);
+        while (!insert.isEmpty() && !container.isEmpty()) {
               char[] cluster = container.substring(0, cluster_size).toCharArray();
-              int position = Math.abs(new Random().nextInt() % cluster_size);
+              int position = 0;//Math.abs(new Random().nextInt() % cluster_size);
               for (int j = 0; j < cluster_size; j += 1) {
                   if (position == j)
                       output += CHARS[insert.pop()];
@@ -55,6 +55,8 @@ public class InsertEncoder {
               }
               container = container.substring(cluster_size);
         }
+        if (!insert.isEmpty())
+            throw new TooSmallContainerException();
         output += container;
         return output;
     }

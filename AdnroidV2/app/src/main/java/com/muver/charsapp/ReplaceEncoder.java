@@ -38,9 +38,10 @@ public class ReplaceEncoder {
         final int N = 2;
         for (int i = 0; i < length; i += 1) {
             j += 1;
-            t_sys += n_sys.pop()*(Math.pow(N, j));
+            t_sys += n_sys.poll()*(Math.pow(N, j));
             if (Long.toString(t_sys).length() > 9) {
                 output += Long.toString(t_sys).substring(1);
+                //System.out.println(output);
                 t_sys = 0;
                 j = -1;
             }
@@ -50,7 +51,7 @@ public class ReplaceEncoder {
     }
 
     public static String encoding(String container, String mess) throws TooSmallContainerException { // 0 - оставление, 1 - замена (текущая версия)
-                                                                                                    // или 0 - русская бука, 1 - английская буква?
+        // или 0 - русская бука, 1 - английская буква?
         String output = "";
         ArrayDeque<Integer> nums = to_2_sys(mess);
         for (char ch:container.toCharArray()) {
@@ -59,8 +60,9 @@ public class ReplaceEncoder {
                 if (nums.isEmpty()) {
                     output += CHARS[i][0];
                 }
-                else
-                    output += CHARS[i][nums.poll()];
+                else {
+                    output += CHARS[i][nums.pop()];
+                }
             }
             else
                 output += ch;
@@ -73,18 +75,33 @@ public class ReplaceEncoder {
     public static String decoding(String container) { // TODO идея для проверки вместимости:
         String output = "";
         ArrayDeque<Integer> nums = new ArrayDeque<>();
-        for (char ch: container.toCharArray()) {
+        char[] chs = container.toCharArray();
+        reverse(chs);
+        boolean isSequnce = false;
+        for (char ch: chs) {
             int i = check_usability(ch);
             if (i != -1) {
+                if (!isSequnce && CHARS[i][1] == ch) {
+                    isSequnce = true;
+                }
                 for (int k = 0; k < CHARS[i].length; k += 1)
-                    if (CHARS[i][k] == ch) {
-                        nums.addLast(k);
+                    if (CHARS[i][k] == ch && isSequnce) {
+                        nums.addFirst(k);
                         break;
                     }
             }
         }
         output = to_10_sys(nums);
         return output;
+    }
+
+    private static void reverse(char[] data) {
+        for (int left = 0, right = data.length - 1; left < right; left++, right--) {
+            // swap the values at the left and right indices
+            char temp = data[left];
+            data[left]  = data[right];
+            data[right] = temp;
+        }
     }
 
     public static String maxCapacity(String container) {

@@ -25,18 +25,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec7bcd42-61bc-4e92-8679-019f5c061800" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/CharEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/DesEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/EncodingType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/InsertEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/NumEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/ReplaceEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/CharSLib/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/java/com/muver/chars/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout-v28/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout-v28/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/container.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/container1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/message1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/InvalidChecksumException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/TooSmallContainerException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdnroidV2/app/src/main/java/com/muver/charsapp/CharEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdnroidV2/app/src/main/java/com/muver/charsapp/CharEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdnroidV2/app/src/main/java/com/muver/charsapp/DesEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdnroidV2/app/src/main/java/com/muver/charsapp/DesEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/DesEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/DesEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/EncodingType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/EncodingType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/ReplaceEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/ReplaceEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/CharEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/CharEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/DesEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/DesEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/EncodingType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/EncodingType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/ReplaceEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/ReplaceEncoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +74,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -124,47 +135,54 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="536" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1611603185770">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="536" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1611603185770" />
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1612023458919">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1612023458919" />
     <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1611602667750">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611602667750" />
-    <state width="1493" height="220" key="GridCell.Tab.0.bottom" timestamp="1611407512189">
+    <state width="1493" height="252" key="GridCell.Tab.0.bottom" timestamp="1612178365067">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="220" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611407512189" />
-    <state width="1493" height="220" key="GridCell.Tab.0.center" timestamp="1611407512188">
+    <state width="1493" height="252" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1612178365067" />
+    <state width="1493" height="252" key="GridCell.Tab.0.center" timestamp="1612178365067">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="220" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611407512188" />
-    <state width="1493" height="220" key="GridCell.Tab.0.left" timestamp="1611407512188">
+    <state width="1493" height="252" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1612178365067" />
+    <state width="1493" height="252" key="GridCell.Tab.0.left" timestamp="1612178365067">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="220" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611407512188" />
-    <state width="1493" height="220" key="GridCell.Tab.0.right" timestamp="1611407512189">
+    <state width="1493" height="252" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1612178365067" />
+    <state width="1493" height="252" key="GridCell.Tab.0.right" timestamp="1612178365067">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="220" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611407512189" />
-    <state width="1493" height="194" key="GridCell.Tab.1.bottom" timestamp="1611345807970">
+    <state width="1493" height="252" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1612178365067" />
+    <state width="1493" height="292" key="GridCell.Tab.1.bottom" timestamp="1612178276536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611345807970" />
-    <state width="1493" height="194" key="GridCell.Tab.1.center" timestamp="1611345807970">
+    <state width="1493" height="292" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1612178276536" />
+    <state width="1493" height="292" key="GridCell.Tab.1.center" timestamp="1612178276536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611345807970" />
-    <state width="1493" height="194" key="GridCell.Tab.1.left" timestamp="1611345807970">
+    <state width="1493" height="292" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1612178276536" />
+    <state width="1493" height="292" key="GridCell.Tab.1.left" timestamp="1612178276536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611345807970" />
-    <state width="1493" height="194" key="GridCell.Tab.1.right" timestamp="1611345807970">
+    <state width="1493" height="292" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1612178276536" />
+    <state width="1493" height="292" key="GridCell.Tab.1.right" timestamp="1612178276536">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="194" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611345807970" />
+    <state width="1493" height="292" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1612178276536" />
     <state x="563" y="49" key="RollbackChangesDialog" timestamp="1611338982719">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -201,21 +219,6 @@
           <url>file://$PROJECT_DIR$/src/com/muver/chars/lib/NumEncoder.java</url>
           <line>75</line>
           <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/muver/chars/lib/ReplaceEncoder.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/muver/chars/lib/ReplaceEncoder.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

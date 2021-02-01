@@ -1,3 +1,3 @@
 package com.muver.chars.lib;
 
-public enum EncodingType { Optimal, MaxCapacity, OnlyInsert, OnlyReplace }
+public enum EncodingType { Standard, MaxCapacity, OnlyInsert, OnlyReplace }
