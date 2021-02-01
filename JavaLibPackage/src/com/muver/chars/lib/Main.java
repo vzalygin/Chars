@@ -10,20 +10,47 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, TooSmallContainerException, IOException, InvalidChecksumException {
+        timer();
+    }
+
+    private static void timer() throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, TooSmallContainerException, IOException, InvalidChecksumException {
         String container = ReadFile("container.txt");
         String message = ReadFile("message.txt");
-        //message = message.substring(0, 500);
-        //container = container.substring(0, 3000);
-        String key = "12341234";
-        EncodingType type = EncodingType.Standard;
+        String tmp_message = "", tmp_container = "", key = "12341234";
         String encoded = "", decoded = "";
-        encoded = CharEncoder.encoding(container, message, key, type);
-        decoded = CharEncoder.decoding(encoded, key, type);
-        System.out.println(decoded);
+        EncodingType type = EncodingType.OnlyInsert;
+        int step = 100, i = 1, begin = 100, count = 10;
+        long m;
+        //tmp_message = message.substring(0, 50);
+        tmp_container = container.substring(0, 30000);
+        for (int j = 0; j < 300; j += 1) {
+            //try {
+                tmp_message = message.substring(0, begin+step*i);
+                int averE = 0, averD = 0;
+                for (int k = 0; k < count; k += 1) {
+                    m = System.currentTimeMillis();
+                    encoded = CharEncoder.encoding(tmp_container, tmp_message, key, type);
+                    averE += (System.currentTimeMillis() - m);
+                    m = System.currentTimeMillis();
+                    //decoded = CharEncoder.encoding(tmp_container, tmp_message, key, type);
+                    averD += (System.currentTimeMillis() - m);
+                }
+                averE /= count;
+                averD /= count;
+                System.out.println(averE);
+                i += 1;
+            /*}
+            catch (Exception e) {
+                System.out.println(0);
+                curr_container += 30000;
+                tmp_container = container.substring(0, curr_container);
+            }*/
+        }
     }
 
     private static void WorkTime() {
-        long m = 0;
+        long m;
+        m = 0;
         //
         System.out.println((double) (System.currentTimeMillis() - m));
     }
