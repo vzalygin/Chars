@@ -46,14 +46,14 @@ public class InsertEncoder {
         if (cluster_size == -1)
             cluster_size = Math.max(container.length() / insert.size(), 1);
         while (!insert.isEmpty() && !container.isEmpty()) {
-              char[] cluster = container.substring(0, cluster_size).toCharArray();
-              int position = Math.abs(new Random().nextInt() % cluster_size);
-              for (int j = 0; j < cluster_size; j += 1) {
-                  if (position == j)
-                      output += CHARS[insert.pop()];
-                  output += cluster[j];
-              }
-              container = container.substring(cluster_size);
+            char[] cluster = container.substring(0, cluster_size).toCharArray();
+            int position = 0;//Math.abs(new Random().nextInt() % cluster_size);
+            for (int j = 0; j < cluster_size; j += 1) {
+                if (position == j)
+                    output += CHARS[insert.pop()];
+                output += cluster[j];
+            }
+            container = container.substring(cluster_size);
         }
         if (!insert.isEmpty())
             throw new TooSmallContainerException();
@@ -80,5 +80,16 @@ public class InsertEncoder {
                 num.push(index);
         };
         return to_t_sys(num);
+    }
+
+    public  static double distortionOfContainer(String container) {
+        int length = container.length();
+        int countOfAdditionalChars = 0;
+        for (int i = 0; i < container.length(); i += 1) {
+            int index = indexOf(container.charAt(i));
+            if (index != -1)
+                countOfAdditionalChars += 1;
+        }
+        return (double) countOfAdditionalChars / length;
     }
 }

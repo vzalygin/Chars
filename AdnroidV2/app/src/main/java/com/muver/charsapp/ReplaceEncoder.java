@@ -3,8 +3,8 @@ package com.muver.charsapp;
 import java.util.*;
 
 public class ReplaceEncoder {
-    private final static char[][] CHARS = new char[][] {{'а', 'a'}, {'с', 'c'}, {'е', 'e'}, {'к', 'k'}, {'о', 'o'},
-            {'р', 'p'}, {'г', 'r'}, {'х', 'x'}, {'у', 'y'}, {'А', 'A'}, {'В', 'B'}, {'С', 'C'}, {'Е', 'E'},
+    private final static char[][] CHARS = new char[][] {{'а', 'a'}, {'с', 'c'}, {'е', 'e'}, /*{'к', 'k'}, {'г', 'r'}, */ {'о', 'o'},
+            {'р', 'p'}, {'х', 'x'}, {'у', 'y'}, {'А', 'A'}, {'В', 'B'}, {'С', 'C'}, {'Е', 'E'},
             {'Н', 'H'}, {'К', 'K'}, {'М', 'M'}, {'О', 'O'}, {'Р', 'P'}, {'Т', 'T'}, {'Х', 'X'}, {'У', 'Y'}};
 
     private static int check_usability(char ch) {

@@ -19,9 +19,11 @@ public class CharEncoder {
                 container = InsertEncoder.encoding(container, num, -1);
                 break;
             case MaxCapacity:
-                String l = ReplaceEncoder.maxCapacity(container).substring(1);
-                container = ReplaceEncoder.encoding(container, num.substring(0, Math.min(l.length()-1, num.length())));
-                num = num.substring(Math.min(l.length()-1, num.length()));
+                String l = ReplaceEncoder.maxCapacity(container);
+                l = l.substring(0, l.length() > 10 ? l.length()-10 : l.length());
+                int replaceLength = Math.min(l.length(), num.length()-1);
+                container = ReplaceEncoder.encoding(container, num.substring(0, replaceLength));
+                num = num.substring(replaceLength);
                 if (!num.isEmpty())
                     container = InsertEncoder.encoding(container, num, -1);
                 break;

@@ -81,4 +81,15 @@ public class InsertEncoder {
         };
         return to_t_sys(num);
     }
+
+    public  static double distortionOfContainer(String container) {
+        int length = container.length();
+        int countOfAdditionalChars = 0;
+        for (int i = 0; i < container.length(); i += 1) {
+            int index = indexOf(container.charAt(i));
+            if (index != -1)
+                countOfAdditionalChars += 1;
+        }
+        return (double) countOfAdditionalChars / length;
+    }
 }

@@ -10,12 +10,27 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, TooSmallContainerException, IOException, InvalidChecksumException {
-        timer();
+        String container = readFile("container.txt");
+        container = container.substring(1000, 2000);
+        String message = "";
+        for (int i = 0; i < 70; i += 1)
+            message += "a";
+        String key = "01901901";
+        long m;
+        m = 0;
+        String encoded = CharEncoder.encoding(container, message, key, EncodingType.MaxCapacity);
+        System.out.println((double) (System.currentTimeMillis() - m));
+        String decoded = CharEncoder.decoding(encoded, key, EncodingType.MaxCapacity);
+        write(encoded, "out.txt");
+        double quotient = InsertEncoder.distortionOfContainer(encoded);
+        System.out.println(encoded);
+        System.out.println(decoded);
+        System.out.println(quotient);
     }
 
     private static void timer() throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException, TooSmallContainerException, IOException, InvalidChecksumException {
-        String container = ReadFile("container.txt");
-        String message = ReadFile("message.txt");
+        String container = readFile("container.txt");
+        String message = readFile("message.txt");
         String tmp_message = "", tmp_container = "", key = "12341234";
         String encoded = "", decoded = "";
         EncodingType type = EncodingType.OnlyInsert;
@@ -55,8 +70,13 @@ public class Main {
         System.out.println((double) (System.currentTimeMillis() - m));
     }
 
+    private static void write(String text, String path) throws IOException {
+        FileWriter writer = new FileWriter(path, false);
+        writer.write(text);
+        writer.flush();
+    }
 
-    private static String ReadFile(String FileName) throws IOException
+    private static String readFile(String FileName) throws IOException
     {
         StringBuilder sb = new StringBuilder();
         try
