@@ -24,21 +24,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec7bcd42-61bc-4e92-8679-019f5c061800" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/q.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AdnroidV2/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../AdnroidV2/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AdnroidV2/app/src/main/java/com/muver/charsapp/ReplaceEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdnroidV2/app/src/main/java/com/muver/charsapp/ReplaceEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/CharEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/InsertEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/ReplaceEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaLibPackage/com/muver/chars/lib/ReplaceEncoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/CharEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/CharEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/InsertEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/muver/chars/lib/ReplaceEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/muver/chars/lib/ReplaceEncoder.java" afterDir="false" />
-    </list>
+    <list default="true" id="ec7bcd42-61bc-4e92-8679-019f5c061800" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
