@@ -72,7 +72,7 @@ public class ReplaceEncoder {
         return output;
     }
 
-    public static String decoding(String container) { // TODO идея для проверки вместимости:
+    public static String decoding(String container) {
         String output = "";
         ArrayDeque<Integer> nums = new ArrayDeque<>();
         char[] chs = container.toCharArray();
