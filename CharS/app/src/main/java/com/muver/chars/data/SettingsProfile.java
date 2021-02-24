@@ -15,20 +15,31 @@ public class SettingsProfile {
     @ColumnInfo(name = "name")
     private String name;
 
+    @NonNull
     @ColumnInfo(name = "type")
-    private int type;
+    private String type;
 
     @NonNull
     @ColumnInfo(name = "key")
     private String key;
 
-    public SettingsProfile(@NonNull String name, int type, @NonNull String key) {
+    public SettingsProfile(@NonNull String name, EncodingType type, @NonNull String key) {
         this.name = name;
-        this.type = type;
+        this.type = type.toString();
         this.key = key;
     }
 
+    public SettingsProfile() {
+        name = "";
+        type = "";
+        key = "";
+    }
+
+    public void setName(@NonNull String value) { name = value; }
+    public void setKey(@NonNull String value) { key = value; }
+    public void setType(@NonNull String value) {type = value; }
+
     public String getName() { return name; }
-    public int getType() { return type; }
+    public String getType() { return type; }
     public String getKey() { return key; }
 }

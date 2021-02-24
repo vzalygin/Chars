@@ -9,10 +9,10 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {SettingsProfile.class}, version = 1)
+@Database(entities = {SettingsProfile.class}, version = 1, exportSchema = false)
 public abstract class SettingsProfileDatabase extends RoomDatabase {
 
-    public SettingsProfileDao settingsProfileDao;
+    public abstract SettingsProfileDao settingsProfileDao();
 
     private static volatile SettingsProfileDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;

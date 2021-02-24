@@ -21,6 +21,6 @@ public interface SettingsProfileDao {
     @Query("DELETE FROM settings_table")
     void deleteAll();
 
-    @Query("SELECT * FROM settings_table")
+    @Query("SELECT * FROM settings_table ORDER BY name ASC")
     LiveData<List<SettingsProfile>> getAll();
 }
