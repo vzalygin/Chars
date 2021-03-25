@@ -85,15 +85,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 class OnClickHandler implements View.OnClickListener {
-    AppCompatActivity activity;
+    MainActivity activity;
     OnClickHandler(AppCompatActivity a) {
-        this.activity = a;
+        this.activity = (MainActivity) a;
     }
 
     @Override
     public void onClick(View view) {
         if (ImageButton.class.isInstance(view)) {
-            String s = ((MainActivity)activity).result.getText().toString();
+            String s = (activity).result.getText().toString();
             if (!s.isEmpty()) {
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
@@ -107,16 +107,16 @@ class OnClickHandler implements View.OnClickListener {
             }
             return;
         }
-        OperationType opType = ((MainActivity)activity).getOperationType();
-        EncodingType encType = ((MainActivity)activity).getEncodingType();
+        OperationType opType = activity.getOperationType();
+        EncodingType encType = activity.getEncodingType();
         if (encType != null && opType != null) {
-            String container = ((MainActivity) activity).container.getText().toString();
-            String message = ((MainActivity) activity).message.getText().toString();
-            String key = ((MainActivity) activity).key.getText().toString();
+            String container = activity.container.getText().toString();
+            String message = activity.message.getText().toString();
+            String key = activity.key.getText().toString();
             if (opType == OperationType.Insert) {
                 try {
                     if (key.length() == 8)
-                        ((MainActivity) activity).result.setText(CharEncoder.encoding(container, message, key, encType));
+                        activity.result.setText(CharEncoder.encoding(container, message, key, encType));
                     else
                         throw new InvalidKeyException();
                 }
@@ -134,12 +134,12 @@ class OnClickHandler implements View.OnClickListener {
                 try {
                     try {
                         if (key.length() == 8)
-                        ((MainActivity) activity).result.setText(CharEncoder.decoding(container, key, encType));
+                            activity.result.setText(CharEncoder.decoding(container, key, encType));
                         else
                             throw new InvalidKeyException();
                     } catch (InvalidChecksumException e) {
                         Toast.makeText(activity, R.string.InvalidChecksum, Toast.LENGTH_LONG).show();
-                        ((MainActivity) activity).result.setText(CharEncoder.decoding(container, key, EncodingType.OnlyInsert));
+                        activity.result.setText(CharEncoder.decoding(container, key, EncodingType.OnlyInsert));
                     }
                 } catch (InvalidKeyException e) {
                     Toast.makeText(activity, R.string.NotFormalKey, Toast.LENGTH_LONG).show();

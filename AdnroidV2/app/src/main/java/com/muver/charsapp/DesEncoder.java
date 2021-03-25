@@ -9,25 +9,34 @@ import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 
 public class DesEncoder {
+
     public static String encoding(String mess, String key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        SecretKey desKey = new SecretKeySpec(key.getBytes(), "DES");
-        Cipher desCipher = Cipher.getInstance("DES");
-        desCipher.init(Cipher.ENCRYPT_MODE, desKey);
-        byte[] byte_enc = desCipher.doFinal(mess.getBytes());
+        SecretKeySpec desKey = new SecretKeySpec(key.getBytes(), "DES"); // создаём ключ
+        Cipher desCipher = Cipher.getInstance("DES"); // создаём шифратор
+        desCipher.init(Cipher.ENCRYPT_MODE, desKey); // даём шифратору ключ и говорим, что он будет шифровать/дэшифровать
+
+        byte[] byte_enc = desCipher.doFinal(mess.getBytes()); // шифруем
         String output = "";
-        for (byte b: byte_enc)
+        for (byte b: byte_enc) // for b in byte_enc
             output += Integer.toString(b + 1128).substring(1);
+                        //         str(...)
         return output;
     }
 
     public static String decoding(String mess, String key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        SecretKey desKey = new SecretKeySpec(key.getBytes(), "DES");
+        SecretKeySpec desKey = new SecretKeySpec(key.getBytes(), "DES");
         Cipher desCipher = Cipher.getInstance("DES");
         desCipher.init(Cipher.DECRYPT_MODE, desKey);
+
         byte[] byte_enc = new byte[mess.length()/3];
+
         for (int i = 0; i < mess.length()/3; i += 1)
             byte_enc[i] = (byte)(Integer.parseInt(mess.substring(i*3, i*3+3)) - 128);
-        return new String(desCipher.doFinal(byte_enc), StandardCharsets.UTF_8);
+
+        String output = new String(desCipher.doFinal(byte_enc), StandardCharsets.UTF_8);
+
+        return output;
     }
 }
+
 
