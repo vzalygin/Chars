@@ -1,22 +1,14 @@
 package com.muver.chars.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.muver.chars.ProfilesViewModel;
+import com.muver.chars.ViewModel;
 import com.muver.chars.R;
-import com.muver.chars.ServiceLocator;
-import com.muver.chars.data.SettingsProfile;
-import com.muver.chars.util.EncodingType;
-
-import java.sql.Time;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ProfilesViewModel viewModel = new ViewModelProvider(this).
-                get(ProfilesViewModel.class);
+        ViewModel viewModel = new ViewModelProvider(this).
+                get(ViewModel.class);
         viewModel.getAllSettingsProfiles().observe(this, adapter::submitList);
 
         /*  repository.insert();

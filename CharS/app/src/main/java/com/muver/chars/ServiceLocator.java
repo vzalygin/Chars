@@ -8,4 +8,5 @@ import androidx.lifecycle.ViewModelStoreOwner;
 
 //TODO Перетащить сюда viewModel
 public class ServiceLocator {
+
 }

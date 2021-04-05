@@ -16,7 +16,7 @@ public interface SettingsProfileDao {
     void insert(SettingsProfile profile);
 
     @Delete
-    void deleteEntity(SettingsProfile profile);
+    void deleteProfile(SettingsProfile profile);
 
     @Query("DELETE FROM settings_table")
     void deleteAll();

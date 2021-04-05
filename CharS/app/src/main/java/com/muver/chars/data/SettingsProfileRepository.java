@@ -29,9 +29,9 @@ public class SettingsProfileRepository {
         Log.d("Repos.Insert()", "Профиль вставлен!");
     }
 
-    public void delete(SettingsProfile profile) {
+    public void deleteProfile(SettingsProfile profile) {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.deleteEntity(profile);
+                () -> { settingsProfileDao.deleteProfile(profile);
                 });
     }
 }

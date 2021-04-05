@@ -13,12 +13,12 @@ import com.muver.chars.util.EncodingType;
 
 import java.util.List;
 
-public class ProfilesViewModel extends AndroidViewModel {
+public class ViewModel extends AndroidViewModel {
 
     private SettingsProfileRepository repository;
     private LiveData<List<SettingsProfile>> allSettingsProfiles;
 
-    public ProfilesViewModel(@NonNull Application application) {
+    public ViewModel(@NonNull Application application) {
         super(application);
         repository = new SettingsProfileRepository(application);
         allSettingsProfiles = repository.getAllProfiles();

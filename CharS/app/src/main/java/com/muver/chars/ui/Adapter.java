@@ -1,11 +1,16 @@
 package com.muver.chars.ui;
 
+import android.app.Application;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
+import com.muver.chars.R;
 import com.muver.chars.data.SettingsProfile;
 import com.muver.chars.util.EncodingType;
 
@@ -18,13 +23,15 @@ public class Adapter extends ListAdapter<SettingsProfile, ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return ViewHolder.create(parent);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
+        view.setOnClickListener(new ClickHandler());
+        return ViewHolder.create(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         SettingsProfile current = getItem(position);
-        holder.bind(current.getName(), current.getType(), current.getKey());
+        holder.bind(current);
     }
 
     static class SettingsProfileDiff extends DiffUtil.ItemCallback<SettingsProfile> {
@@ -39,6 +46,13 @@ public class Adapter extends ListAdapter<SettingsProfile, ViewHolder> {
             return oldItem.getName().equals(newItem.getName()) &&
                     oldItem.getType().equals(newItem.getType()) &&
                     oldItem.getKey().equals(newItem.getKey());
+        }
+    }
+
+    private static class ClickHandler implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }

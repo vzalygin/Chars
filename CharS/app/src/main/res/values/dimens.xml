@@ -1,3 +1,4 @@
 <resources>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="profile_block_height">100dp</dimen>
 </resources>
