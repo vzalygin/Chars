@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 
 import com.muver.chars.data.SettingsProfile;
 import com.muver.chars.data.SettingsProfileRepository;
+import com.muver.chars.navigator.ScreenType;
 
 import java.util.List;
 
@@ -22,8 +23,6 @@ public class ProfilesViewModel extends AndroidViewModel {
         super(application);
         _repository = new SettingsProfileRepository(application);
         _allSettingsProfiles = _repository.getAll();
-
-
         _selected = null;
     }
 
@@ -40,7 +39,8 @@ public class ProfilesViewModel extends AndroidViewModel {
     }
 
     public void deleteSettingsProfile(SettingsProfile profile) {
-        _repository.delete(profile);
+        if (ServiceLocator.getNavigator().navigateTo(ScreenType.DeleteWarningDialog))
+            _repository.delete(profile);
     }
 
     public void setSelected(SettingsProfile profile) {

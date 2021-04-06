@@ -18,4 +18,8 @@
     <string name="profile_name">Имя</string>
     <string name="key">Ключ</string>
     <string name="type">Режим</string>
+    <string name="delete_warning_title">Подтверждение</string>
+    <string name="delete_warning_text">Вы действительно хотите удалить этот профиль?</string>
+    <string name="cancel">Отмена</string>
+    <string name="confirmation">Да</string>
 </resources>

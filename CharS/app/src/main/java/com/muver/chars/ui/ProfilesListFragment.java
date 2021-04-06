@@ -26,7 +26,6 @@ public class ProfilesListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         RecyclerView recyclerView = (RecyclerView)getView();
         Adapter adapter = new Adapter(new Adapter.SettingsProfileDiff());
         recyclerView.setAdapter(adapter);
