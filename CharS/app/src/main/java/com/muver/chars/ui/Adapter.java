@@ -23,9 +23,7 @@ public class Adapter extends ListAdapter<SettingsProfile, ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
-        view.setOnClickListener(new ClickHandler());
-        return ViewHolder.create(view);
+        return ViewHolder.create(parent, viewType);
     }
 
     @Override
@@ -50,6 +48,11 @@ public class Adapter extends ListAdapter<SettingsProfile, ViewHolder> {
     }
 
     private static class ClickHandler implements View.OnClickListener {
+
+        public ClickHandler() {
+
+        }
+
         @Override
         public void onClick(View v) {
 

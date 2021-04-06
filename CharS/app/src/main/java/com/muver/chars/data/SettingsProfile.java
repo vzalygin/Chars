@@ -23,10 +23,14 @@ public class SettingsProfile {
     @ColumnInfo(name = "key")
     private String key;
 
-    public SettingsProfile(@NonNull String name, EncodingType type, @NonNull String key) {
+    @ColumnInfo(name = "selected")
+    private int selected;
+
+    public SettingsProfile(@NonNull String name, @NonNull EncodingType type, @NonNull String key) {
         this.name = name;
         this.type = type.toString();
         this.key = key;
+        this.selected = 0;
     }
 
     public SettingsProfile() {
@@ -38,8 +42,13 @@ public class SettingsProfile {
     public void setName(@NonNull String value) { name = value; }
     public void setKey(@NonNull String value) { key = value; }
     public void setType(@NonNull String value) {type = value; }
+    public void setSelected(int selected) { this.selected = selected; }
 
+    @NonNull
     public String getName() { return name; }
+    @NonNull
     public String getType() { return type; }
+    @NonNull
     public String getKey() { return key; }
+    public int getSelected() { return selected; }
 }

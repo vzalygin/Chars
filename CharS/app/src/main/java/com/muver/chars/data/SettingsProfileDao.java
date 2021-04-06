@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -16,11 +17,17 @@ public interface SettingsProfileDao {
     void insert(SettingsProfile profile);
 
     @Delete
-    void deleteProfile(SettingsProfile profile);
+    void delete(SettingsProfile profile);
 
     @Query("DELETE FROM settings_table")
     void deleteAll();
 
     @Query("SELECT * FROM settings_table ORDER BY name ASC")
     LiveData<List<SettingsProfile>> getAll();
+
+    @Update
+    void update(SettingsProfile profile);
+
+    @Query("UPDATE settings_table SET selected = 0")
+    void setAllNotSelected();
 }

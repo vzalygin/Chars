@@ -18,7 +18,7 @@ public class SettingsProfileRepository {
         allSettingsProfiles = settingsProfileDao.getAll();
     }
 
-    public LiveData<List<SettingsProfile>> getAllProfiles() {
+    public LiveData<List<SettingsProfile>> getAll() {
         return allSettingsProfiles;
     }
 
@@ -29,9 +29,29 @@ public class SettingsProfileRepository {
         Log.d("Repos.Insert()", "Профиль вставлен!");
     }
 
-    public void deleteProfile(SettingsProfile profile) {
+    public void delete(SettingsProfile profile) {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.deleteProfile(profile);
-                });
+                () -> { settingsProfileDao.delete(profile); }
+                );
+    }
+
+    public void deleteAll() {
+        SettingsProfileDatabase.databaseWriteExecutor.execute(
+                () -> { settingsProfileDao.deleteAll(); }
+                );
+    }
+
+    public void update(SettingsProfile profile) {
+        SettingsProfileDatabase.databaseWriteExecutor.execute(
+                () -> { settingsProfileDao.update(profile); }
+                );
+    }
+
+    public void setSelected(SettingsProfile profile) {
+        SettingsProfileDatabase.databaseWriteExecutor.execute(
+                () -> { settingsProfileDao.setAllNotSelected();
+                        profile.setSelected(1);
+                        settingsProfileDao.update(profile);}
+        );
     }
 }
