@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 public class ServiceLocator {
 
     private static Activity _activity;
-    private static ViewModel _viewModel;
+    private static ProfilesViewModel _viewModel;
 
     public ServiceLocator(@NonNull Activity activity) {
         _activity = activity;
@@ -18,10 +18,10 @@ public class ServiceLocator {
 
     public static Context getContext() { return _activity.getApplicationContext(); }
 
-    public static ViewModel getViewModel() {
+    public static ProfilesViewModel getViewModel() {
         if (_viewModel == null) {
             _viewModel = new ViewModelProvider((ViewModelStoreOwner) _activity).
-                    get(ViewModel.class);
+                    get(ProfilesViewModel.class);
         }
         return _viewModel;
     }

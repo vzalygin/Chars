@@ -57,15 +57,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.editButton:
-                    Toast.makeText(v.getContext(), "EDIT" + _profile.getName(), Toast.LENGTH_SHORT).show();
                     ServiceLocator.getViewModel().editSettingsProfile(_profile);
                     break;
                 case R.id.deleteButton:
-                    Toast.makeText(v.getContext(), "DELETE" + _profile.getName(), Toast.LENGTH_SHORT).show();
                     ServiceLocator.getViewModel().deleteSettingsProfile(_profile);
                     break;
                 default:
-                    Toast.makeText(v.getContext(), "CHOOSE" + _profile.getName(), Toast.LENGTH_SHORT).show();
                     ServiceLocator.getViewModel().setSelected(_profile);
                     break;
             }

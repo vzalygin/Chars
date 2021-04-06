@@ -1,7 +1,6 @@
 package com.muver.chars.data;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -9,49 +8,40 @@ import java.util.List;
 
 public class SettingsProfileRepository {
 
-    private SettingsProfileDao settingsProfileDao;
-    private LiveData<List<SettingsProfile>> allSettingsProfiles;
+    private SettingsProfileDao _settingsProfileDao;
+    private LiveData<List<SettingsProfile>> _allSettingsProfiles;
 
     public SettingsProfileRepository(Application application) {
         SettingsProfileDatabase db = SettingsProfileDatabase.getInstance(application);
-        this.settingsProfileDao = db.settingsProfileDao();
-        allSettingsProfiles = settingsProfileDao.getAll();
+        this._settingsProfileDao = db.settingsProfileDao();
+        _allSettingsProfiles = _settingsProfileDao.getAll();
     }
 
     public LiveData<List<SettingsProfile>> getAll() {
-        return allSettingsProfiles;
+        return _allSettingsProfiles;
     }
 
     public void insert(SettingsProfile profile) {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.insert(profile);
-                });
-        Log.d("Repos.Insert()", "Профиль вставлен!");
+                () -> { _settingsProfileDao.insert(profile); }
+                );
     }
 
     public void delete(SettingsProfile profile) {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.delete(profile); }
+                () -> { _settingsProfileDao.delete(profile); }
                 );
     }
 
     public void deleteAll() {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.deleteAll(); }
+                () -> { _settingsProfileDao.deleteAll(); }
                 );
     }
 
     public void update(SettingsProfile profile) {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.update(profile); }
+                () -> { _settingsProfileDao.update(profile); }
                 );
-    }
-
-    public void setSelected(SettingsProfile profile) {
-        SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { settingsProfileDao.setAllNotSelected();
-                        profile.setSelected(1);
-                        settingsProfileDao.update(profile);}
-        );
     }
 }

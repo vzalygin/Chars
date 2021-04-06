@@ -43,19 +43,8 @@ public class Adapter extends ListAdapter<SettingsProfile, ViewHolder> {
         public boolean areContentsTheSame(@NonNull SettingsProfile oldItem, @NonNull SettingsProfile newItem) {
             return oldItem.getName().equals(newItem.getName()) &&
                     oldItem.getType().equals(newItem.getType()) &&
-                    oldItem.getKey().equals(newItem.getKey());
-        }
-    }
-
-    private static class ClickHandler implements View.OnClickListener {
-
-        public ClickHandler() {
-
-        }
-
-        @Override
-        public void onClick(View v) {
-
+                    oldItem.getKey().equals(newItem.getKey()) &&
+                    Integer.compare(oldItem.getSelected(), newItem.getSelected()) == 0;
         }
     }
 }

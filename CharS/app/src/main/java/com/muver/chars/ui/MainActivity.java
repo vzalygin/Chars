@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.muver.chars.ServiceLocator;
-import com.muver.chars.ViewModel;
+import com.muver.chars.ProfilesViewModel;
 import com.muver.chars.R;
 import com.muver.chars.data.SettingsProfile;
 import com.muver.chars.util.EncodingType;
@@ -20,16 +20,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new ServiceLocator(this);
-        ViewModel viewModel = ServiceLocator.getViewModel();
+        ServiceLocator serviceLocator = new ServiceLocator(this);
+        ProfilesViewModel viewModel = ServiceLocator.getViewModel();
 
-
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        Adapter adapter = new Adapter(new Adapter.SettingsProfileDiff());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //viewModel.deleteAll();
-        viewModel.getAllSettingsProfiles().observe(this, adapter::submitList);
-        viewModel.insertSettingsProfile(new SettingsProfile(new Date().toString(), EncodingType.MaxCapacity, "12341234"));
+        getSupportFragmentManager().beginTransaction()
+                .setReorderingAllowed(true)
+                .add(R.id.list_fragment_view, ProfilesListFragment.class, null)
+                .commit();
     }
 }
