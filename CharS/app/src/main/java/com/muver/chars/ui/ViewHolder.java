@@ -1,6 +1,9 @@
 package com.muver.chars.ui;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +51,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     }
 
     static ViewHolder create(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.profile_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -60,7 +63,17 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                     ServiceLocator.getViewModel().editSettingsProfile(_profile);
                     break;
                 case R.id.deleteButton:
-                    ServiceLocator.getViewModel().deleteSettingsProfile(_profile);
+                    new AlertDialog.Builder(itemView.getContext())
+                            .setTitle(itemView.getContext().getString(R.string.delete_warning_title))
+                            .setMessage(itemView.getContext().getString(R.string.delete_warning_text))
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    ServiceLocator.getViewModel().deleteSettingsProfile(_profile);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, null)
+                            .show();
                     break;
                 default:
                     ServiceLocator.getViewModel().setSelected(_profile);

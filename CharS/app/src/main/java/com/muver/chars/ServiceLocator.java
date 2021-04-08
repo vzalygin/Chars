@@ -8,18 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
-import com.muver.chars.navigator.AppNavigator;
-import com.muver.chars.navigator.AppNavigatorImpl;
-
 public class ServiceLocator {
 
     private static Activity _activity;
     private static ProfilesViewModel _viewModel;
-    private static AppNavigator _navigator;
 
     public ServiceLocator(@NonNull Activity activity) {
         _activity = activity;
-        _navigator = new AppNavigatorImpl();
     }
 
     public static Context getContext() {
@@ -36,9 +31,5 @@ public class ServiceLocator {
                     get(ProfilesViewModel.class);
         }
         return _viewModel;
-    }
-
-    public static AppNavigator getNavigator() {
-        return _navigator;
     }
 }

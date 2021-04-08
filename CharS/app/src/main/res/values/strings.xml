@@ -22,4 +22,6 @@
     <string name="delete_warning_text">Вы действительно хотите удалить этот профиль?</string>
     <string name="cancel">Отмена</string>
     <string name="confirmation">Да</string>
+    <string name="add_profile_title">Новый профиль</string>
+    <string name="add_profile_text">Создать новый профиль настроек</string>
 </resources>
