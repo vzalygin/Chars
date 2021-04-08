@@ -60,6 +60,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.editButton:
+                    new EditProfileFragment().onCreateDialog(null);
                     ServiceLocator.getViewModel().editSettingsProfile(_profile);
                     break;
                 case R.id.deleteButton:

@@ -24,4 +24,6 @@
     <string name="confirmation">Да</string>
     <string name="add_profile_title">Новый профиль</string>
     <string name="add_profile_text">Создать новый профиль настроек</string>
+    <string name="key_hint">Ключ шифрования (8 цифр)</string>
+    <string name="type_hint">Режим работы</string>
 </resources>

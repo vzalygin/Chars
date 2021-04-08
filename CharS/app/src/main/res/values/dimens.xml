@@ -3,4 +3,5 @@
     <dimen name="profile_block_height">80dp</dimen>
     <dimen name="profile_block_width">391dp</dimen>
     <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="input_text_width">350dp</dimen>
 </resources>
