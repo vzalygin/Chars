@@ -1,16 +1,11 @@
 package com.muver.chars.ui;
 
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.muver.chars.R;
 import com.muver.chars.ServiceLocator;
@@ -25,7 +20,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private TextView _nameTextView;
     private TextView _infoTextView;
     private RadioButton _rButton;
-    private ImageButton _editButton, _deleteButton;
+    private ImageButton _editButton; //_deleteButton;
 
     private ViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -35,8 +30,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         _rButton = itemView.findViewById(R.id.r_button);
         _editButton = itemView.findViewById(R.id.editButton);
         _editButton.setOnClickListener(new ClickHandler());
-        _deleteButton = itemView.findViewById(R.id.deleteButton);
-        _deleteButton.setOnClickListener(new ClickHandler());
+        //_deleteButton = itemView.findViewById(R.id.deleteButton);
+        //_deleteButton.setOnClickListener(new ClickHandler());
         itemView.setOnClickListener(new ClickHandler());
     }
 
@@ -44,8 +39,8 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         this._profile = profile;
 
         this._nameTextView.setText(this._profile.getName());
-        String info = ServiceLocator.getContext().getString(R.string.key) + ": " + this._profile.getKey()
-                + "\n" + ServiceLocator.getContext().getString(R.string.type) + ": " + this._profile.getType();
+        String info = itemView.getContext().getString(R.string.profile_key) + ": " + this._profile.getKey()
+                + "\n" + itemView.getContext().getString(R.string.profile_type) + ": " + this._profile.getType();
         this._infoTextView.setText(info);
         this._rButton.setChecked(this._profile.getSelected() == 1);
     }
@@ -60,22 +55,11 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.editButton:
-                    new EditProfileFragment().onCreateDialog(null);
-                    ServiceLocator.getViewModel().editSettingsProfile(_profile);
+                    ServiceLocator.getActivity().showEditProfileDialog(_profile);
                     break;
-                case R.id.deleteButton:
-                    new AlertDialog.Builder(itemView.getContext())
-                            .setTitle(itemView.getContext().getString(R.string.delete_warning_title))
-                            .setMessage(itemView.getContext().getString(R.string.delete_warning_text))
-                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    ServiceLocator.getViewModel().deleteSettingsProfile(_profile);
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, null)
-                            .show();
-                    break;
+                /*case R.id.deleteButton:
+                    ServiceLocator.getActivity().showDeleteProfileDialog(_profile, itemView.getContext());
+                    break;*/
                 default:
                     ServiceLocator.getViewModel().setSelected(_profile);
                     break;

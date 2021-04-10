@@ -1,64 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="5dp"
-    android:background="@color/colorProfileBlock"
-    app:cardCornerRadius="@dimen/card_corner_radius">
-    <LinearLayout
+    style="@style/card_view">
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <RadioButton
-            android:layout_gravity="center"
+        android:orientation="horizontal">
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            style="@style/element"
+            android:layout_gravity="center_vertical"
             android:id="@+id/r_button"
             android:clickable="false"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" />
+            android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:layout_width="200dp"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="5dp"
-            android:gravity="center">
-            <TextView
+            android:orientation="vertical">
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/text_title"
                 android:text="@string/profile_name"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#000"
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-            <TextView
-                android:text="@string/key"
-                android:textSize="16sp"
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/text_content_1"
+                android:text="@string/profile_key"
                 android:id="@+id/info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
+            style="@style/element"
             android:layout_gravity="center"
             android:id="@+id/editButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/edit"
-            android:background="#8CFFF8"
-            android:layout_margin="5dp" />
+            android:background="#8CFFF8" />
 
-        <ImageButton
+        <!--<ImageButton
+            style="@style/element"
             android:layout_gravity="center"
             android:id="@+id/deleteButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:clickable="true"
-            android:focusable="true"
             app:srcCompat="@drawable/delete"
-            android:background="#FC7878"
-            android:layout_margin="5dp" />
-    </LinearLayout>
+            android:background="#FC7878" /> -->
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.cardview.widget.CardView>

@@ -8,20 +8,18 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.muver.chars.ui.MainActivity;
+
 public class ServiceLocator {
 
-    private static Activity _activity;
+    private static MainActivity _activity;
     private static ProfilesViewModel _viewModel;
 
-    public ServiceLocator(@NonNull Activity activity) {
+    public ServiceLocator(@NonNull MainActivity activity) {
         _activity = activity;
     }
 
-    public static Context getContext() {
-        return _activity.getApplicationContext();
-    }
-
-    public static Activity getActivity() {
+    public static MainActivity getActivity() {
         return _activity;
     }
 

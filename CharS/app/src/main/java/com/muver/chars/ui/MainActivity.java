@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.muver.chars.ServiceLocator;
@@ -27,5 +30,23 @@ public class MainActivity extends AppCompatActivity {
                 .setReorderingAllowed(true)
                 .add(R.id.list_fragment_view, ProfilesListFragment.class, null)
                 .commit();
+    }
+
+    public void showDeleteProfileDialog(SettingsProfile profile, Context context) {
+        new AlertDialog.Builder(context)
+                .setTitle(getString(R.string.delete_warning_title))
+                .setMessage(getString(R.string.delete_warning_text))
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ServiceLocator.getViewModel().deleteSettingsProfile(profile);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    public void showEditProfileDialog(SettingsProfile profile) {
+        new EditProfileFragment(profile).show(getSupportFragmentManager(), EditProfileFragment.TAG);
     }
 }
