@@ -11,6 +11,7 @@ import com.muver.chars.data.SettingsProfile;
 import com.muver.chars.data.SettingsProfileRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ProfilesViewModel extends AndroidViewModel {
 
@@ -23,18 +24,29 @@ public class ProfilesViewModel extends AndroidViewModel {
         _repository = new SettingsProfileRepository(application);
         _allSettingsProfiles = _repository.getAll();
         _selected = null;
+        try {
+            for (SettingsProfile p : Objects.requireNonNull(_allSettingsProfiles.getValue())) {
+                if (p.getSelected() == 1) {
+                    _selected = p;
+                    break;
+                }
+            }
+        }
+        catch (NullPointerException e) {
+            Log.w("ProfilesViewModel", "LiveData value is null.", e);
+        }
+
     }
 
     public LiveData<List<SettingsProfile>> getAllSettingsProfiles() {
         return _allSettingsProfiles;
     }
 
-    public void insertSettingsProfile(SettingsProfile profile) {
-        _repository.insert(profile);
-    }
-
-    public void editSettingsProfile(SettingsProfile profile) {
-        _repository.update(profile);
+    public void addSettingsProfile(SettingsProfile profile) {
+        if (_allSettingsProfiles.getValue().contains(profile))
+            _repository.update(profile);
+        else
+            _repository.insert(profile);
     }
 
     public void deleteSettingsProfile(SettingsProfile profile) {
@@ -42,19 +54,6 @@ public class ProfilesViewModel extends AndroidViewModel {
     }
 
     public void setSelected(SettingsProfile profile) {
-        if (_selected == null) {
-            try {
-                for (SettingsProfile p : _allSettingsProfiles.getValue()) {
-                    if (p.getSelected() == 1) {
-                        _selected = p;
-                        break;
-                    }
-                }
-            }
-            catch (NullPointerException e) {
-                Log.w("ProfilesViewModel", "LiveData value is null.", e);
-            }
-        }
         if (_selected != null) {
             _selected.setSelected(0);
             _repository.update(_selected);

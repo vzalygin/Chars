@@ -20,7 +20,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private TextView _nameTextView;
     private TextView _infoTextView;
     private RadioButton _rButton;
-    private ImageButton _editButton; //_deleteButton;
+    private ImageButton _editButton;
 
     private ViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -30,8 +30,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         _rButton = itemView.findViewById(R.id.r_button);
         _editButton = itemView.findViewById(R.id.editButton);
         _editButton.setOnClickListener(new ClickHandler());
-        //_deleteButton = itemView.findViewById(R.id.deleteButton);
-        //_deleteButton.setOnClickListener(new ClickHandler());
         itemView.setOnClickListener(new ClickHandler());
     }
 
@@ -57,9 +55,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                 case R.id.editButton:
                     ServiceLocator.getActivity().showEditProfileDialog(_profile);
                     break;
-                /*case R.id.deleteButton:
-                    ServiceLocator.getActivity().showDeleteProfileDialog(_profile, itemView.getContext());
-                    break;*/
                 default:
                     ServiceLocator.getViewModel().setSelected(_profile);
                     break;

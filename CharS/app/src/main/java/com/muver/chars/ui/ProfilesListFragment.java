@@ -20,7 +20,6 @@ import java.util.Date;
 public class ProfilesListFragment extends Fragment {
     public ProfilesListFragment() {
         super(R.layout.profiles_list_fragment);
-        ServiceLocator.getViewModel().insertSettingsProfile(new SettingsProfile(new Date().toString(), EncodingType.MaxCapacity, "12341234"));
     }
 
     @Override
@@ -30,6 +29,15 @@ public class ProfilesListFragment extends Fragment {
         Adapter adapter = new Adapter(new Adapter.SettingsProfileDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(this, adapter::submitList);
+        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(getViewLifecycleOwner(), adapter::submitList);
+        getView().findViewById(R.id.add_profile).setOnClickListener(new ClickHandler());
+    }
+
+    private class ClickHandler implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            ServiceLocator.getActivity().showEditProfileDialog(new SettingsProfile());
+        }
     }
 }

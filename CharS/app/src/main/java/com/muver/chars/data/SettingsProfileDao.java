@@ -22,7 +22,7 @@ public interface SettingsProfileDao {
     @Query("DELETE FROM settings_table")
     void deleteAll();
 
-    @Query("SELECT * FROM settings_table ORDER BY name ASC")
+    @Query("SELECT * FROM settings_table ORDER BY id ASC")
     LiveData<List<SettingsProfile>> getAll();
 
     @Update

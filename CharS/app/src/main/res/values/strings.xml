@@ -6,8 +6,8 @@
     <string name="profile_key">Ключ</string>
     <string name="profile_type">Режим работы</string>
 
-    <!-- Delete profile warning -->
-    <string name="delete_warning_title">Подтверждение</string>
+    <!-- Warnings -->
+    <string name="warning_title">Подтверждение</string>
     <string name="delete_warning_text">Вы действительно хотите удалить этот профиль?</string>
 
     <!-- New profile button -->
@@ -25,4 +25,8 @@
 
     <string name="save_profile">Сохранить профиль</string>
     <string name="delete_profile">Удалить профиль</string>
+    
+    <string name="empty_name">Введите название профиля.</string>
+    <string name="too_small_key">Ключ должен состоять из 8 цифр.</string>
+    <string name="not_definite_type">Выберете режим работы.</string>
 </resources>

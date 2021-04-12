@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/card_view">
+    style="@style/card_view" >
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:padding="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:orientation="vertical">
+
         <com.google.android.material.textview.MaterialTextView
             style="@style/text_title"
             android:text="@string/profile_name"
@@ -20,7 +20,7 @@
             android:id="@+id/name_view"
             android:layout_height="wrap_content"
             android:layout_width="@dimen/input_text_width"
-            android:inputType="text"
+            android:inputType="textCapSentences"
             android:hint="@string/name_hint"
             android:autofillHints="" />
 
@@ -34,6 +34,7 @@
             style="@style/text_content_2"
             android:id="@+id/key_view"
             android:layout_height="wrap_content"
+            android:maxLength="8"
             android:layout_width="@dimen/input_text_width"
             android:inputType="number"
             android:hint="@string/key_hint"
@@ -46,13 +47,12 @@
             android:layout_height="wrap_content"/>
 
         <RadioGroup
-            android:id="@+id/encodingModeRG"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 style="@style/text_content_2"
-                android:id="@+id/standardRB"
+                android:id="@+id/standard_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/standard_mode"
@@ -61,7 +61,7 @@
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 style="@style/text_content_2"
-                android:id="@+id/maxCapacityRB"
+                android:id="@+id/max_capacity_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/max_capacity_mode"
@@ -70,14 +70,14 @@
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 style="@style/text_content_2"
-                android:id="@+id/insertOnlyRB"
+                android:id="@+id/only_insert_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/only_insert_mode" />
 
             <androidx.appcompat.widget.AppCompatRadioButton
                 style="@style/text_content_2"
-                android:id="@+id/replaceOnlyRB"
+                android:id="@+id/only_replace_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/only_replace_mode" />
@@ -91,6 +91,7 @@
 
             <Button
                 style="@style/text_content_2"
+                android:id="@+id/delete_button"
                 android:text="@string/delete_profile"
                 android:background="@color/colorDeleteButton"
                 android:layout_width="wrap_content"
@@ -99,6 +100,7 @@
 
             <Button
                 style="@style/text_content_2"
+                android:id="@+id/save_button"
                 android:text="@string/save_profile"
                 android:background="@color/colorAcceptButton"
                 android:layout_width="wrap_content"
