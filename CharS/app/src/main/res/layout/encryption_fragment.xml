@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    style="@style/card_view"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.AppCompatRadioButton
+                style="@style/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/insert_mode" />
+            <androidx.appcompat.widget.AppCompatRadioButton
+                style="@style/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/take_out_mode" />
+        </RadioGroup>
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/text_content_2"
+            android:id="@+id/container_id"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textCapSentences"
+            android:hint="@string/container_hint"
+            android:autofillHints="" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/text_content_2"
+            android:id="@+id/secret_view"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textCapSentences"
+            android:hint="@string/secret_hint"
+            android:autofillHints="" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/filled_container_view"
+            style="@style/text_title"
+            android:text="@string/filled_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/secret_message_view"
+            style="@style/text_title"
+            android:text="@string/secret_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            style="@style/text_content_2"
+            android:id="@+id/result_view"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textCapSentences"
+            android:autofillHints="" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>

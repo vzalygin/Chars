@@ -23,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         ProfilesViewModel viewModel = ServiceLocator.getViewModel();
 
         getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
                 .add(R.id.list_fragment_view, ProfilesListFragment.class, null)
+                .commit();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.encryption_fragment_view, EncryptionFragment.class, null)
                 .commit();
     }
 

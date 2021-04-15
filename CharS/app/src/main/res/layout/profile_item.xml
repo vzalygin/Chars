@@ -43,7 +43,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 app:srcCompat="@drawable/edit"
-                android:background="@color/colorAcceptButton"/>
+                android:background="@color/colorAccent"/>
         </androidx.cardview.widget.CardView>
         <!--<ImageButton
             style="@style/element"

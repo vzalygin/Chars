@@ -33,7 +33,7 @@ public class ProfilesListFragment extends Fragment {
         getView().findViewById(R.id.add_profile).setOnClickListener(new ClickHandler());
     }
 
-    private class ClickHandler implements View.OnClickListener {
+    private static class ClickHandler implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {

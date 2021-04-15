@@ -29,4 +29,14 @@
     <string name="empty_name">Введите название профиля.</string>
     <string name="too_small_key">Ключ должен состоять из 8 цифр.</string>
     <string name="not_definite_type">Выберете режим работы.</string>
+
+    <!-- Encryption fragment -->
+    <string name="insert_mode">Сокрытие</string>
+    <string name="take_out_mode">Извлечение</string>
+
+    <string name="container_hint">Введите текст-контейнер</string>
+    <string name="secret_hint">Введите секрет</string>
+
+    <string name="secret_message">Секретное сообщение</string>
+    <string name="filled_container">Заполненный контейнер</string>
 </resources>
