@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#116591</color>
     <color name="colorPrimaryDark">#043a57</color>
-    <color name="colorAccent">#00aba0</color>
+    <color name="colorAccent">#3bccc3</color>
+    <color name="colorAccentLight">#3bccc3</color>
     <color name="colorBackground">#d2d2d2</color>
     <color name="colorProfileBlock">#fff</color>
     <color name="colorDeleteButton">#FC7878</color>
