@@ -19,15 +19,9 @@ public interface SettingsProfileDao {
     @Delete
     void delete(SettingsProfile profile);
 
-    @Query("DELETE FROM settings_table")
-    void deleteAll();
-
     @Query("SELECT * FROM settings_table ORDER BY id ASC")
-    LiveData<List<SettingsProfile>> getAll();
+    List<SettingsProfile> getAll();
 
     @Update
     void update(SettingsProfile profile);
-
-    @Query("UPDATE settings_table SET selected = 0")
-    void setAllNotSelected();
 }

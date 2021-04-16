@@ -4,21 +4,24 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SettingsProfileRepository {
 
     private SettingsProfileDao _settingsProfileDao;
-    private LiveData<List<SettingsProfile>> _allSettingsProfiles;
 
     public SettingsProfileRepository(Application application) {
         SettingsProfileDatabase db = SettingsProfileDatabase.getInstance(application);
         this._settingsProfileDao = db.settingsProfileDao();
-        _allSettingsProfiles = _settingsProfileDao.getAll();
     }
 
-    public LiveData<List<SettingsProfile>> getAll() {
-        return _allSettingsProfiles;
+    public List<SettingsProfile> getAll() {
+        List<SettingsProfile> tmp = new ArrayList<SettingsProfile>();
+        SettingsProfileDatabase.databaseWriteExecutor.execute(
+                () -> { tmp.addAll(_settingsProfileDao.getAll()); }
+        );
+        return tmp;
     }
 
     public void insert(SettingsProfile profile) {
@@ -30,12 +33,6 @@ public class SettingsProfileRepository {
     public void delete(SettingsProfile profile) {
         SettingsProfileDatabase.databaseWriteExecutor.execute(
                 () -> { _settingsProfileDao.delete(profile); }
-                );
-    }
-
-    public void deleteAll() {
-        SettingsProfileDatabase.databaseWriteExecutor.execute(
-                () -> { _settingsProfileDao.deleteAll(); }
                 );
     }
 

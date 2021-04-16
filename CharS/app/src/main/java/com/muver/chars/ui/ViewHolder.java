@@ -40,7 +40,12 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         String info = itemView.getContext().getString(R.string.profile_key) + ": " + this._profile.getKey()
                 + "\n" + itemView.getContext().getString(R.string.profile_type) + ": " + this._profile.getType();
         this._infoTextView.setText(info);
-        this._rButton.setChecked(this._profile.getSelected() == 1);
+        this._rButton.setChecked(this._profile.equals(ServiceLocator.getViewModel().getSelected()));
+    }
+
+    @NonNull
+    public RadioButton getRButton() {
+        return _rButton;
     }
 
     static ViewHolder create(@NonNull ViewGroup parent, int viewType) {
@@ -57,6 +62,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                     break;
                 default:
                     ServiceLocator.getViewModel().setSelected(_profile);
+                    ((Adapter)getBindingAdapter()).getRadioGroup().checkRadioButton(_rButton);
                     break;
             }
         }

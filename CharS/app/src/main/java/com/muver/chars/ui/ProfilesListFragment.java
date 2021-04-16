@@ -15,6 +15,7 @@ import com.muver.chars.ServiceLocator;
 import com.muver.chars.data.SettingsProfile;
 import com.muver.chars.util.EncodingType;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ProfilesListFragment extends Fragment {
@@ -25,11 +26,14 @@ public class ProfilesListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView recyclerView = (RecyclerView)getView().findViewById(R.id.recycler_view);
-        Adapter adapter = new Adapter(new Adapter.SettingsProfileDiff());
+
+        RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
+        Adapter adapter = new Adapter();
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(getViewLifecycleOwner(), adapter::submitList);
+        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(getViewLifecycleOwner(), adapter::setProfiles);
+
         getView().findViewById(R.id.add_profile).setOnClickListener(new ClickHandler());
     }
 

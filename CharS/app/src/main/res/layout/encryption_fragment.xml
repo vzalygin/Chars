@@ -19,18 +19,20 @@
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatRadioButton
                     style="@style/text_title"
+                    android:id="@+id/insert_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/insert_mode" />
                 <androidx.appcompat.widget.AppCompatRadioButton
                     style="@style/text_title"
+                    android:id="@+id/take_out_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/take_out_mode" />
             </RadioGroup>
             <androidx.appcompat.widget.AppCompatEditText
                 style="@style/text_content_2"
-                android:id="@+id/container_id"
+                android:id="@+id/container_view"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:inputType="textCapSentences"

@@ -1,6 +1,7 @@
 package com.muver.chars.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleObserver;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.encryption_fragment_view, EncryptionFragment.class, null)
                 .commit();
+        
     }
 
     public void showEditProfileDialog(SettingsProfile profile) {

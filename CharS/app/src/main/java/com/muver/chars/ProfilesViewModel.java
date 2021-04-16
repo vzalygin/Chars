@@ -1,69 +1,49 @@
 package com.muver.chars;
 
 import android.app.Application;
-import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.muver.chars.data.SettingsProfile;
 import com.muver.chars.data.SettingsProfileRepository;
 
 import java.util.List;
-import java.util.Objects;
 
 public class ProfilesViewModel extends AndroidViewModel {
 
     private SettingsProfile _selected;
-    private SettingsProfileRepository _repository;
-    private LiveData<List<SettingsProfile>> _allSettingsProfiles;
+    private MutableLiveData<List<SettingsProfile>> _allSettingsProfiles = new MutableLiveData<>();
 
     public ProfilesViewModel(@NonNull Application application) {
         super(application);
-        _repository = new SettingsProfileRepository(application);
-        _allSettingsProfiles = _repository.getAll();
-        _selected = null;
-        try {
-            for (SettingsProfile p : Objects.requireNonNull(_allSettingsProfiles.getValue())) {
-                if (p.getSelected() == 1) {
-                    _selected = p;
-                    break;
-                }
-            }
-        }
-        catch (NullPointerException e) {
-            Log.w("ProfilesViewModel", "LiveData value is null.", e);
-        }
-
+        SettingsProfile.createRepository(application);
+        _allSettingsProfiles.setValue(SettingsProfile.getProfiles());
     }
 
-    public LiveData<List<SettingsProfile>> getAllSettingsProfiles() {
+    public MutableLiveData<List<SettingsProfile>> getAllSettingsProfiles() {
         return _allSettingsProfiles;
     }
 
+    public SettingsProfile getSelected() {
+        return _selected;
+    }
+
     public void addSettingsProfile(SettingsProfile profile) {
-        if (_allSettingsProfiles.getValue().contains(profile))
-            _repository.update(profile);
-        else
-            _repository.insert(profile);
+        Toast.makeText(getApplication().getApplicationContext(), String.valueOf(profile.getId()),Toast.LENGTH_SHORT).show();
+        _allSettingsProfiles.setValue(SettingsProfile.insert(profile));
     }
 
     public void deleteSettingsProfile(SettingsProfile profile) {
-        _repository.delete(profile);
+        List<SettingsProfile> tmp = SettingsProfile.delete(profile);
+        _allSettingsProfiles.setValue(tmp);
     }
 
     public void setSelected(SettingsProfile profile) {
-        if (_selected != null) {
-            _selected.setSelected(0);
-            _repository.update(_selected);
-        }
         _selected = profile;
-        _selected.setSelected(1);
-        _repository.update(_selected);
-    }
-
-    public void deleteAll() {
-        _repository.deleteAll();
     }
 }
