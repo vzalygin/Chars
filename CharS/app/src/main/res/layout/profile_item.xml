@@ -34,8 +34,8 @@
 
         <androidx.cardview.widget.CardView
             style="@style/element"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_width="50dp"
             app:cardCornerRadius="25dp"
             android:layout_gravity="center">
             <androidx.appcompat.widget.AppCompatImageButton
@@ -45,13 +45,5 @@
                 app:srcCompat="@drawable/edit"
                 android:background="@color/colorAccent"/>
         </androidx.cardview.widget.CardView>
-        <!--<ImageButton
-            style="@style/element"
-            android:layout_gravity="center"
-            android:id="@+id/deleteButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/delete"
-            android:background="#FC7878" /> -->
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.cardview.widget.CardView>

@@ -89,12 +89,14 @@ public class EncryptionFragment extends Fragment {
                     _filledContainer.setVisibility(View.VISIBLE);
                     _secretMessage.setVisibility(View.GONE);
                     _secretText.setVisibility(View.VISIBLE);
+                    _containerText.setText("");
                     _result.setText("");
                     break;
                 case R.id.take_out_button:
                     _filledContainer.setVisibility(View.GONE);
                     _secretMessage.setVisibility(View.VISIBLE);
                     _secretText.setVisibility(View.GONE);
+                    _containerText.setText("");
                     _secretText.setText("");
                     _result.setText("");
                     break;
