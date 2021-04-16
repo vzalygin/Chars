@@ -6,7 +6,18 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.muver.chars.util.CharEncoder;
 import com.muver.chars.util.EncodingType;
+import com.muver.chars.util.InvalidChecksumException;
+import com.muver.chars.util.OperationType;
+import com.muver.chars.util.TooSmallContainerException;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 @Entity(tableName = "settings_table")
 public class SettingsProfile {
@@ -66,5 +77,16 @@ public class SettingsProfile {
             return id == ((SettingsProfile)obj).getId();
         else
             return super.equals(obj);
+    }
+
+    public String execute(@NonNull String container, @NonNull String secret, @NonNull OperationType type) throws BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, TooSmallContainerException, NoSuchPaddingException, InvalidKeyException, InvalidChecksumException {
+        switch (type) {
+            case Insert:
+                return CharEncoder.encoding(container, secret, key, EncodingType.valueOf(this.type));
+            case TakeOut:
+                return CharEncoder.decoding(container, key, EncodingType.valueOf(this.type));
+            default:
+                throw new IllegalArgumentException();
+        }
     }
 }
