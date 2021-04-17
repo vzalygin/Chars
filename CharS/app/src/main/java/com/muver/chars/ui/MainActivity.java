@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ServiceLocator serviceLocator = new ServiceLocator(this);
-        ProfilesViewModel viewModel = ServiceLocator.getViewModel();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        new ServiceLocator(this);
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.list_fragment_view, ProfilesListFragment.class, null)
@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.encryption_fragment_view, EncryptionFragment.class, null)
                 .commit();
-
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     public void showEditProfileDialog(SettingsProfile profile) {
