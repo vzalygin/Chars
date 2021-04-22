@@ -6,17 +6,12 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.preference.PreferenceFragmentCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.muver.chars.R;
 import com.muver.chars.ServiceLocator;
 import com.muver.chars.data.SettingsProfile;
-import com.muver.chars.util.EncodingType;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 public class ProfilesListFragment extends Fragment {
     public ProfilesListFragment() {
@@ -28,11 +23,12 @@ public class ProfilesListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
-        Adapter adapter = new Adapter();
+        ProfilesAdapter profilesAdapter = new ProfilesAdapter(getContext());
 
-        recyclerView.setAdapter(adapter);
+        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(getViewLifecycleOwner(),
+                profiles -> { profilesAdapter.setProfiles(profiles); } );
+        recyclerView.setAdapter(profilesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(getViewLifecycleOwner(), adapter::setProfiles);
 
         getView().findViewById(R.id.add_profile).setOnClickListener(new ClickHandler());
     }

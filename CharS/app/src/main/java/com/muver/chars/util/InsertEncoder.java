@@ -3,9 +3,9 @@ package com.muver.chars.util;
 import java.util.*;
 
 public class InsertEncoder {
-    private static final char[] CHARS = new char[] {/*'ͯ', 'ͮ', 'ͭ', 'ͬ', 'ͫ', 'ͪ', 'ͩ', 'ͨ', 'ͧ', 'ͦ', 'ͥ', 'ͤ', 'ͣ',*/ '͘',
+    private static final char[] CHARS = new char[] { /*'ͯ', 'ͮ', 'ͭ', 'ͬ', 'ͫ', 'ͪ', 'ͩ', 'ͨ', 'ͧ', 'ͦ', 'ͥ', 'ͤ', 'ͣ',*/ '͘',
             '͗', '͕', '͔', '͓', '͑', '͐', '͏', '͉', '̾', '̽', '̻', '̹', '̩', '̨', '̦',
-            '̥', '̣', '̠', '̟', '̞', '̝', '̛', '̚', '̕', '̔', '̓', '̑', '̏', '̉', '̶'};
+            '̥', '̣', '̠', '̟', '̞', '̝', '̛', '̚', '̕', '̔', '̓', '̑', '̏', '̉' };
     private static final int N = CHARS.length;
 
     private static Stack<Integer> to_n_sys(String mess) {

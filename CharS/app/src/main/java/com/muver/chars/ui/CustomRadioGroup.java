@@ -10,7 +10,8 @@ public class CustomRadioGroup {
     private List<RadioButton> _radioButtons = new ArrayList<>();
 
     public void addRadioButton(RadioButton button) {
-        _radioButtons.add(button);
+        if (!_radioButtons.contains(button))
+            _radioButtons.add(button);
     }
 
     public void checkRadioButton(RadioButton button) {

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
@@ -34,13 +35,11 @@ public class ProfilesViewModel extends AndroidViewModel {
     }
 
     public void addSettingsProfile(SettingsProfile profile) {
-        Toast.makeText(getApplication().getApplicationContext(), String.valueOf(profile.getId()),Toast.LENGTH_SHORT).show();
         _allSettingsProfiles.setValue(SettingsProfile.insert(profile));
     }
 
     public void deleteSettingsProfile(SettingsProfile profile) {
-        List<SettingsProfile> tmp = SettingsProfile.delete(profile);
-        _allSettingsProfiles.setValue(tmp);
+        _allSettingsProfiles.setValue(SettingsProfile.delete(profile));
     }
 
     public void setSelected(SettingsProfile profile) {

@@ -2,6 +2,8 @@ package com.muver.chars.data;
 
 import android.app.Application;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.WorkerThread;
 import androidx.lifecycle.LiveData;
 
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class SettingsProfileRepository {
         SettingsProfileDatabase db = SettingsProfileDatabase.getInstance(application);
         this._settingsProfileDao = db.settingsProfileDao();
     }
-
+    
     public List<SettingsProfile> getAll() {
         List<SettingsProfile> tmp = new ArrayList<SettingsProfile>();
         SettingsProfileDatabase.databaseWriteExecutor.execute(

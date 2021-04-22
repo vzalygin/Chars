@@ -62,7 +62,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
                     break;
                 default:
                     ServiceLocator.getViewModel().setSelected(_profile);
-                    ((Adapter)getBindingAdapter()).getRadioGroup().checkRadioButton(_rButton);
+                    ((ProfilesAdapter)getBindingAdapter()).getRadioGroup().checkRadioButton(_rButton);
                     break;
             }
         }
