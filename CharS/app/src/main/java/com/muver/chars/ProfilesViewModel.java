@@ -32,18 +32,6 @@ public class ProfilesViewModel extends AndroidViewModel {
         _repository = new SettingsProfileRepository(application);
         _allSettingsProfiles = _repository.getAll();
         _selected = null;
-        try {
-            for (SettingsProfile p : Objects.requireNonNull(_allSettingsProfiles.getValue())) {
-                if (p.getSelected() == 1) {
-                    _selected = p;
-                    break;
-                }
-            }
-        }
-        catch (NullPointerException e) {
-            Log.w("ProfilesViewModel", "LiveData value is null.", e);
-        }
-
     }
 
     public LiveData<List<SettingsProfile>> getAllSettingsProfiles() {
@@ -62,6 +50,19 @@ public class ProfilesViewModel extends AndroidViewModel {
     }
 
     public void setSelected(@NonNull SettingsProfile profile) {
+        if (_selected == null) {
+            try {
+                for (SettingsProfile p : Objects.requireNonNull(_allSettingsProfiles.getValue())) {
+                    if (p.getSelected() == 1) {
+                        _selected = p;
+                        break;
+                    }
+                }
+            }
+            catch (NullPointerException e) {
+                Log.w("ProfilesViewModel", "LiveData value is null.", e);
+            }
+        }
         if (_selected != null) {
             _selected.setSelected(0);
             _repository.update(_selected);
