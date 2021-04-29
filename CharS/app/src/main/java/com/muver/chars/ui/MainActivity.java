@@ -1,16 +1,13 @@
 package com.muver.chars.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LifecycleObserver;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import com.muver.chars.ServiceLocator;
-import com.muver.chars.ProfilesViewModel;
 import com.muver.chars.R;
 import com.muver.chars.data.SettingsProfile;
 
@@ -21,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // TODO сделать setActivity()
-        ServiceLocator serviceLocator = new ServiceLocator(this);
+
+        ServiceLocator.setActivity(this);
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.list_fragment_view, ProfilesListFragment.class, null)
@@ -45,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ServiceLocator.getViewModel().deleteSettingsProfile(profile);
+                        ServiceLocator.getProfilesViewModel().deleteSettingsProfile(profile);
                         removeEditProfileDialog();
                     }
                 })

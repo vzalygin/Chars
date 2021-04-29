@@ -1,6 +1,5 @@
 package com.muver.chars.ui;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -110,7 +109,7 @@ public class EditProfileFragment extends DialogFragment {
                 case R.id.save_button:
                     if (checkCorrectnessInputData()) {
                         SettingsProfile profile = createProfileByValues();
-                        ServiceLocator.getViewModel().addSettingsProfile(profile);
+                        ServiceLocator.getProfilesViewModel().addSettingsProfile(profile);
                         ServiceLocator.getActivity().removeEditProfileDialog();
                     }
                     break;

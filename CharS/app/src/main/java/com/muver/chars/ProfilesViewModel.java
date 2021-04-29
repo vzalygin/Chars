@@ -31,6 +31,7 @@ public class ProfilesViewModel extends AndroidViewModel {
         super(application);
         SettingsProfile.createRepository(application);
         _allSettingsProfiles = SettingsProfile.getProfiles();
+        Toast.makeText(getApplication().getApplicationContext(), "jopa2",Toast.LENGTH_SHORT).show();
     }
 
     public LiveData<List<SettingsProfile>> getAllSettingsProfiles() {
