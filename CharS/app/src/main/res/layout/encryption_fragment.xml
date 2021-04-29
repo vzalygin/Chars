@@ -20,12 +20,14 @@
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/insert_button"
                     style="@style/text_title"
+                    android:id="@+id/insert_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/insert_mode" />
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/take_out_button"
                     style="@style/text_title"
+                    android:id="@+id/take_out_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/take_out_mode" />

@@ -1,7 +1,10 @@
 package com.muver.chars.data;
 
+import android.app.Application;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -19,8 +22,12 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+import java.util.List;
+
 @Entity(tableName = "settings_table")
 public class SettingsProfile {
+
+    private static SettingsProfileRepository _repository;
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -38,14 +45,10 @@ public class SettingsProfile {
     @ColumnInfo(name = "key")
     private String key;
 
-    @ColumnInfo(name = "selected")
-    private int selected;
-
     public SettingsProfile(@NonNull String name, @NonNull EncodingType type, @NonNull String key) {
         this.type = type.toString();
         this.name = name;
         this.key = key;
-        this.selected = 0;
     }
 
     public SettingsProfile() {
@@ -58,7 +61,6 @@ public class SettingsProfile {
     public void setName(@NonNull String value) { name = value; }
     public void setKey(@NonNull String value) { key = value; }
     public void setType(@NonNull String value) {type = value; }
-    public void setSelected(int selected) { this.selected = selected; }
 
     public int getId() { return id; }
     @NonNull
@@ -67,7 +69,27 @@ public class SettingsProfile {
     public String getType() { return type; }
     @NonNull
     public String getKey() { return key; }
-    public int getSelected() { return selected; }
+
+    public static void createRepository(Application application) {
+        _repository = new SettingsProfileRepository(application);
+    }
+
+    public static LiveData<List<SettingsProfile>> getProfiles() {
+        return _repository.getAll();
+    }
+
+    public static LiveData<List<SettingsProfile>> insert(SettingsProfile profile) {
+        if (getProfiles().getValue() != null && getProfiles().getValue().contains(profile))
+            _repository.update(profile);
+        else
+            _repository.insert(profile);
+        return getProfiles();
+    }
+
+    public static LiveData<List<SettingsProfile>> delete(SettingsProfile profile) {
+        _repository.delete(profile);
+        return getProfiles();
+    }
 
     @Override
     public boolean equals(@Nullable Object obj) {

@@ -40,7 +40,7 @@ public class EncryptionFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+      
         _containerText = view.findViewById(R.id.container_view);
         _secretText = view.findViewById(R.id.secret_view);
         _insertButton = view.findViewById(R.id.insert_button);

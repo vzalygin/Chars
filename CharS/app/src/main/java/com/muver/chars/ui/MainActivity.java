@@ -1,6 +1,7 @@
 package com.muver.chars.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LifecycleObserver;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -20,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        new ServiceLocator(this);
+        // TODO сделать setActivity()
+        ServiceLocator serviceLocator = new ServiceLocator(this);
 
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.list_fragment_view, ProfilesListFragment.class, null)
