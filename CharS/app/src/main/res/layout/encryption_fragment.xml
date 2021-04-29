@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         style="@style/card_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.5">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -18,12 +18,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/insert_button"
                     style="@style/text_title"
                     android:id="@+id/insert_rb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/insert_mode" />
                 <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/take_out_button"
                     style="@style/text_title"
                     android:id="@+id/take_out_rb"
                     android:layout_width="match_parent"
@@ -33,9 +35,11 @@
             <androidx.appcompat.widget.AppCompatEditText
                 style="@style/text_content_2"
                 android:id="@+id/container_view"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:layout_width="match_parent"
-                android:inputType="textCapSentences"
+                android:layout_weight="0.5"
+                android:inputType="textMultiLine"
+                android:maxLines="12"
                 android:hint="@string/container_hint"
                 android:autofillHints="" />
 
@@ -62,25 +66,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <androidx.appcompat.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatEditText
+                android:singleLine="false"
+                android:maxLines="7"
+                android:lines="7"
                 style="@style/text_content_2"
                 android:id="@+id/result_view"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:inputType="textCapSentences"
+                android:layout_weight="0.85"
+                android:inputType="textMultiLine"
+                android:hint="@string/result_field"
                 android:autofillHints="" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         style="@style/card_view"
-        android:layout_weight="0.5"
-        android:layout_height="130dp">
+        android:layout_height="60dp">
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/copy_button"
                 style="@style/element"
                 android:layout_margin="7dp"
                 android:layout_width="match_parent"
@@ -89,6 +98,7 @@
                 android:text="@string/copy"
                 android:background="#f59d71"/>
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/execute_button"
                 style="@style/element"
                 android:layout_margin="7dp"
                 android:layout_width="match_parent"
@@ -97,6 +107,7 @@
                 android:text="@string/execute"
                 android:background="@color/colorAccent"/>
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/share_button"
                 style="@style/element"
                 android:layout_margin="7dp"
                 android:layout_width="match_parent"
