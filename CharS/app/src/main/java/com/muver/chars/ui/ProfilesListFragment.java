@@ -23,10 +23,9 @@ public class ProfilesListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         RecyclerView recyclerView = getView().findViewById(R.id.recycler_view);
-        ProfilesAdapter profilesAdapter = new ProfilesAdapter(getContext());
+        ProfilesAdapter profilesAdapter = new ProfilesAdapter();
 
-        ServiceLocator.getViewModel().getAllSettingsProfiles().observe(getViewLifecycleOwner(),
-                profiles -> { profilesAdapter.setProfiles(profiles); } );
+        ServiceLocator.getViewModel().getAllSettingsProfiles().observeForever(profilesAdapter::setProfiles);
         recyclerView.setAdapter(profilesAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

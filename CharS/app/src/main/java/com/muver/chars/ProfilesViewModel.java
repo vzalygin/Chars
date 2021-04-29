@@ -18,15 +18,15 @@ import java.util.List;
 public class ProfilesViewModel extends AndroidViewModel {
 
     private SettingsProfile _selected;
-    private MutableLiveData<List<SettingsProfile>> _allSettingsProfiles = new MutableLiveData<>();
+    private final LiveData<List<SettingsProfile>> _allSettingsProfiles;
 
     public ProfilesViewModel(@NonNull Application application) {
         super(application);
         SettingsProfile.createRepository(application);
-        _allSettingsProfiles.setValue(SettingsProfile.getProfiles());
+        _allSettingsProfiles = SettingsProfile.getProfiles();
     }
 
-    public MutableLiveData<List<SettingsProfile>> getAllSettingsProfiles() {
+    public LiveData<List<SettingsProfile>> getAllSettingsProfiles() {
         return _allSettingsProfiles;
     }
 
@@ -35,11 +35,11 @@ public class ProfilesViewModel extends AndroidViewModel {
     }
 
     public void addSettingsProfile(SettingsProfile profile) {
-        _allSettingsProfiles.setValue(SettingsProfile.insert(profile));
+        SettingsProfile.insert(profile);
     }
 
     public void deleteSettingsProfile(SettingsProfile profile) {
-        _allSettingsProfiles.setValue(SettingsProfile.delete(profile));
+        SettingsProfile.delete(profile);
     }
 
     public void setSelected(SettingsProfile profile) {

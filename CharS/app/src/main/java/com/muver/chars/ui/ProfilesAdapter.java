@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.muver.chars.ServiceLocator;
 import com.muver.chars.data.SettingsProfile;
 
 import java.util.List;
@@ -17,13 +18,6 @@ public class ProfilesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private CustomRadioGroup _radioGroup = new CustomRadioGroup();;
     private List<SettingsProfile> _profiles;
-    // TODO удалить
-    private Context _context;
-    private int _preCount = -1;
-
-    public ProfilesAdapter(Context context) {
-        this._context = context;
-    }
 
     @NonNull
     @Override
@@ -41,9 +35,6 @@ public class ProfilesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (_preCount != _profiles.size())
-            Toast.makeText(_context, "Count changed. New value: " + String.valueOf(_profiles.size()),Toast.LENGTH_SHORT).show();
-        _preCount = _profiles.size();
         return _profiles.size();
     }
 
@@ -52,11 +43,7 @@ public class ProfilesAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     public void setProfiles(List<SettingsProfile> profiles) {
-        if (profiles.isEmpty())
-
-        Toast.makeText(_context, "Adapter: " + String.valueOf(profiles.size()),Toast.LENGTH_SHORT).show();
+        Toast.makeText(ServiceLocator.getViewModel().getApplication().getApplicationContext(), String.valueOf(profiles.size()), Toast.LENGTH_SHORT).show();
         this._profiles = profiles;
-
-        Toast.makeText(_context, "Adapter count: " + String.valueOf(getItemCount()),Toast.LENGTH_SHORT).show();
     }
 }

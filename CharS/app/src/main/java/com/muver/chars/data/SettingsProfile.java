@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.LiveData;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -62,19 +63,19 @@ public class SettingsProfile {
         _repository = new SettingsProfileRepository(application);
     }
 
-    public static List<SettingsProfile> getProfiles() {
+    public static LiveData<List<SettingsProfile>> getProfiles() {
         return _repository.getAll();
     }
 
-    public static List<SettingsProfile> insert(SettingsProfile profile) {
-        if (getProfiles().contains(profile))
+    public static LiveData<List<SettingsProfile>> insert(SettingsProfile profile) {
+        if (getProfiles().getValue() != null && getProfiles().getValue().contains(profile))
             _repository.update(profile);
         else
             _repository.insert(profile);
         return getProfiles();
     }
 
-    public static List<SettingsProfile> delete(SettingsProfile profile) {
+    public static LiveData<List<SettingsProfile>> delete(SettingsProfile profile) {
         _repository.delete(profile);
         return getProfiles();
     }
