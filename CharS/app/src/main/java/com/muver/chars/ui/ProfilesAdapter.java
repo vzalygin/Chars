@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.muver.chars.ServiceLocator;
@@ -14,10 +16,13 @@ import com.muver.chars.data.SettingsProfile;
 
 import java.util.List;
 
-public class ProfilesAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class ProfilesAdapter extends ListAdapter<SettingsProfile, ViewHolder> {
 
-    private CustomRadioGroup _radioGroup = new CustomRadioGroup();;
-    private List<SettingsProfile> _profiles;
+    private CustomRadioGroup _radioGroup = new CustomRadioGroup();
+
+    public ProfilesAdapter(@NonNull DiffUtil.ItemCallback<SettingsProfile> diffCallback) {
+        super(diffCallback);
+    }
 
     @NonNull
     @Override
@@ -27,23 +32,27 @@ public class ProfilesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        //Toast.makeText(_context, String.valueOf(position), Toast.LENGTH_SHORT).show();
+        SettingsProfile current = getItem(position);
         _radioGroup.addRadioButton(holder.getRButton());
-        SettingsProfile current = _profiles.get(position);
         holder.bind(current);
-    }
-
-    @Override
-    public int getItemCount() {
-        return _profiles.size();
     }
 
     public CustomRadioGroup getRadioGroup() {
         return _radioGroup;
     }
 
-    public void setProfiles(List<SettingsProfile> profiles) {
-        Toast.makeText(ServiceLocator.getViewModel().getApplication().getApplicationContext(), String.valueOf(profiles.size()), Toast.LENGTH_SHORT).show();
-        this._profiles = profiles;
+    static class SettingsProfileDiff extends DiffUtil.ItemCallback<SettingsProfile> {
+
+        @Override
+        public boolean areItemsTheSame(@NonNull SettingsProfile oldItem, @NonNull SettingsProfile newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull SettingsProfile oldItem, @NonNull SettingsProfile newItem) {
+            return oldItem.getName().equals(newItem.getName()) &&
+                    oldItem.getType().equals(newItem.getType()) &&
+                    oldItem.getKey().equals(newItem.getKey());
+        }
     }
 }
