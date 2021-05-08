@@ -6,6 +6,7 @@
     <string name="invalid_check_sum">Неверная контрольная сумма.</string>
     <string name="invalid_check_sum_info">Для отключения проверки контрольной суммы используйте режим OnlyInsert.</string>
     <string name="invalid_operation">Ошибка алгоритма шифрования.</string>
+    <string name="server_unavailable">Сервер недоступен. Повторите попытку позже.</string>
     <string name="not_stated_settings_profile">Не выбран профиль работы</string>
 
     <!-- RecyclerView profile item-->

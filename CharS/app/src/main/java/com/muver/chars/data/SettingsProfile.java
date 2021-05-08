@@ -9,18 +9,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.muver.chars.util.CharEncoder;
+import com.muver.chars.network.EncryptionPackage;
+import com.muver.chars.network.Network;
 import com.muver.chars.util.EncodingType;
-import com.muver.chars.util.InvalidChecksumException;
 import com.muver.chars.util.OperationType;
-import com.muver.chars.util.TooSmallContainerException;
-
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 
 import java.util.List;
 
@@ -101,14 +93,9 @@ public class SettingsProfile {
             return super.equals(obj);
     }
 
-    public String execute(@NonNull String container, @NonNull String secret, @NonNull OperationType type) throws BadPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, TooSmallContainerException, NoSuchPaddingException, InvalidKeyException, InvalidChecksumException {
-        switch (type) {
-            case Insert:
-                return CharEncoder.encoding(container, secret, key, EncodingType.valueOf(this.type));
-            case TakeOut:
-                return CharEncoder.decoding(container, key, EncodingType.valueOf(this.type));
-            default:
-                throw new IllegalArgumentException();
-        }
+    public Object[] execute(@NonNull String container, @NonNull String secret, @NonNull OperationType type) {
+        EncryptionPackage p = new EncryptionPackage(container, secret, key, EncodingType.valueOf(this.type), type);
+        Network.getInstance().execute(p);
+        return new Object[] { p.getResult(), p.getState() };
     }
 }
