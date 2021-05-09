@@ -1,19 +1,17 @@
 package com.muver.chars.ui;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-
-import com.muver.chars.ServiceLocator;
 import com.muver.chars.R;
+import com.muver.chars.ServiceLocator;
 import com.muver.chars.data.SettingsProfile;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,10 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)!= PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.INTERNET}, 1);
-        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)!= PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, new String[]{ Manifest.permission.INTERNET }, 1);
 
         ServiceLocator.setActivity(this);
 
@@ -49,12 +45,9 @@ public class MainActivity extends AppCompatActivity {
         new AlertDialog.Builder(context)
                 .setTitle(getString(R.string.warning_title))
                 .setMessage(getString(R.string.delete_warning_text))
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        ServiceLocator.getProfilesViewModel().deleteSettingsProfile(profile);
-                        removeEditProfileDialog();
-                    }
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+                    ServiceLocator.getProfilesViewModel().deleteSettingsProfile(profile);
+                    removeEditProfileDialog();
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();

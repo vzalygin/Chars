@@ -1,6 +1,7 @@
 package com.muver.chars.data;
 
 import android.app.Application;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -93,9 +94,8 @@ public class SettingsProfile {
             return super.equals(obj);
     }
 
-    public Object[] execute(@NonNull String container, @NonNull String secret, @NonNull OperationType type) {
+    public void execute(@NonNull String container, @NonNull String secret, @NonNull OperationType type, Handler handler) {
         EncryptionPackage p = new EncryptionPackage(container, secret, key, EncodingType.valueOf(this.type), type);
-        Network.getInstance().execute(p);
-        return new Object[] { p.getResult(), p.getState() };
+        Network.getInstance().execute(p, handler);
     }
 }

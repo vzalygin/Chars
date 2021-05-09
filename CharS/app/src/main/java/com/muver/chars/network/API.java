@@ -6,6 +6,6 @@ import retrofit2.http.POST;
 
 public interface API {
 
-    @POST("encrypt")
-    public Call<EncryptionPackage> encrypt(@Body EncryptionPackage p);
+    @POST("/encrypt")
+    Call<EncryptionPackage> encrypt(@Body EncryptionPackage p);
 }

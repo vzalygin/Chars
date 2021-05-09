@@ -6,13 +6,13 @@ import com.muver.chars.util.OperationType;
 
 public class EncryptionPackage {
 
-    private OperationState state;
-    private String container;
-    private String secret;
-    private String key;
-    private String result;
-    private EncodingType encType;
-    private OperationType opType;
+    public OperationState state;
+    public String container;
+    public String secret;
+    public String key;
+    public String result;
+    public EncodingType encType;
+    public OperationType opType;
 
     public EncryptionPackage(String container, String secret, String key, EncodingType encType, OperationType opType) {
         this.container = container;

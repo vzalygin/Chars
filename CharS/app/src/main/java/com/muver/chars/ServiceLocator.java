@@ -11,7 +11,6 @@ public class ServiceLocator {
 
     private static MainActivity _activity;
     private static ProfilesViewModel _profilesViewModel;
-    private static EncryptionViewModel _encryptionViewModel;
 
     public static MainActivity getActivity() {
         return _activity;
@@ -23,17 +22,9 @@ public class ServiceLocator {
 
     public static ProfilesViewModel getProfilesViewModel() {
         if (_profilesViewModel == null) {
-            _profilesViewModel = new ViewModelProvider((ViewModelStoreOwner) _activity)
+            _profilesViewModel = new ViewModelProvider(_activity)
                     .get(ProfilesViewModel.class);
         }
         return _profilesViewModel;
-    }
-
-    public static EncryptionViewModel getEncryptionViewModel() {
-        if (_encryptionViewModel == null) {
-            _encryptionViewModel = new ViewModelProvider((ViewModelStoreOwner) _activity)
-                    .get(EncryptionViewModel.class);
-        }
-        return _encryptionViewModel;
     }
 }

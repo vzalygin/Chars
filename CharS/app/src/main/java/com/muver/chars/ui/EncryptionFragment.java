@@ -53,11 +53,11 @@ public class EncryptionFragment extends Fragment {
         _copyButton = view.findViewById(R.id.copy_button);
 
         _secretMessage.setVisibility(View.INVISIBLE);
-        _insertButton.setOnClickListener(new ClickHandler());
-        _takeOutButton.setOnClickListener(new ClickHandler());
-        _shareButton.setOnClickListener(new ClickHandler());
-        _executeButton.setOnClickListener(new ClickHandler());
-        _copyButton.setOnClickListener(new ClickHandler());
+        _insertButton.setOnClickListener(new ClickHandler(this));
+        _takeOutButton.setOnClickListener(new ClickHandler(this));
+        _shareButton.setOnClickListener(new ClickHandler(this));
+        _executeButton.setOnClickListener(new ClickHandler(this));
+        _copyButton.setOnClickListener(new ClickHandler(this));
     }
 
     private Correctness checkCorrectness() {
@@ -80,7 +80,16 @@ public class EncryptionFragment extends Fragment {
             return null;
     }
 
+    public void setExecutionResult(String result) {
+        _result.setText(result);
+    }
+
     private class ClickHandler implements View.OnClickListener {
+        EncryptionFragment fragment;
+
+        public ClickHandler(EncryptionFragment fragment) {
+            this.fragment = fragment;
+        }
 
         @Override
         public void onClick(View v) {
@@ -109,7 +118,7 @@ public class EncryptionFragment extends Fragment {
                 case R.id.execute_button:
                     Correctness c = checkCorrectness();
                     if (c == Correctness.AllOk || (c == Correctness.EmptySecret && getOperationType() == OperationType.TakeOut))
-                        _result.setText(ServiceLocator.getProfilesViewModel().execute(_containerText.getText().toString(), _secretText.getText().toString(), getOperationType()));
+                        ServiceLocator.getProfilesViewModel().execute(_containerText.getText().toString(), _secretText.getText().toString(), getOperationType(), fragment);
                     else if (c == Correctness.NSOperationType)
                         Toast.makeText(getContext(), R.string.not_stated_operation_type, Toast.LENGTH_SHORT).show();
                     else if (c == Correctness.EmptyContainer)
