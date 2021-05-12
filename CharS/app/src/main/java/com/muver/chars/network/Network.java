@@ -4,8 +4,27 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
+import com.muver.chars.R;
+import com.muver.chars.ServiceLocator;
 import com.muver.chars.util.OperationState;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,9 +39,10 @@ public class Network {
 
     private Network() {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.100:8080")
+                .baseUrl("https://chars-application.herokuapp.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
+
         this.api = retrofit.create(API.class);
     }
 

@@ -79,36 +79,37 @@ public class ProfilesViewModel extends AndroidViewModel {
     public void execute(@NonNull String container, @NonNull String key, OperationType type, EncryptionFragment fragment) {
         if (_selected == null) {
             Toast.makeText(getApplication().getApplicationContext(), R.string.not_stated_settings_profile, Toast.LENGTH_SHORT).show();
-        }
-        _selected.execute(container, key, type, new Handler() {
-            @Override
-            public void handleMessage(@NonNull Message msg) {
-                super.handleMessage(msg);
-                if (msg.obj != null) {
-                    String result = ((EncryptionPackage)msg.obj).getResult();
-                    OperationState state = ((EncryptionPackage)msg.obj).getState();
-                    switch (state) {
-                        case Ok:
-                            fragment.setExecutionResult(result);
-                            break;
-                        case EncryptionErr:
-                            Toast.makeText(getApplication().getApplicationContext(), R.string.invalid_operation, Toast.LENGTH_SHORT).show();
-                            break;
-                        case InvalidCheckSum:
-                            Toast.makeText(getApplication().getApplicationContext(), R.string.invalid_check_sum, Toast.LENGTH_SHORT).show();
-                            break;
-                        case TooSmallContainer:
-                            Toast.makeText(getApplication().getApplicationContext(), R.string.too_small_container, Toast.LENGTH_SHORT).show();
-                            break;
-                        case ServerUnavaliable:
-                            Toast.makeText(getApplication().getApplicationContext(), R.string.server_unavailable, Toast.LENGTH_SHORT).show();
-                            break;
-                        default:
-                            Log.w("ProfViewModel::execute", "Unknown state: " + state);
-                            break;
+        } else {
+            _selected.execute(container, key, type, new Handler() {
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+                    super.handleMessage(msg);
+                    if (msg.obj != null) {
+                        String result = ((EncryptionPackage)msg.obj).getResult();
+                        OperationState state = ((EncryptionPackage)msg.obj).getState();
+                        switch (state) {
+                            case Ok:
+                                fragment.setExecutionResult(result);
+                                break;
+                            case EncryptionErr:
+                                Toast.makeText(getApplication().getApplicationContext(), R.string.invalid_operation, Toast.LENGTH_SHORT).show();
+                                break;
+                            case InvalidCheckSum:
+                                Toast.makeText(getApplication().getApplicationContext(), R.string.invalid_check_sum, Toast.LENGTH_SHORT).show();
+                                break;
+                            case TooSmallContainer:
+                                Toast.makeText(getApplication().getApplicationContext(), R.string.too_small_container, Toast.LENGTH_SHORT).show();
+                                break;
+                            case ServerUnavaliable:
+                                Toast.makeText(getApplication().getApplicationContext(), R.string.server_unavailable, Toast.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                Log.w("ProfViewModel::execute", "Unknown state: " + state);
+                                break;
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     }
 }

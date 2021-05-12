@@ -34,13 +34,11 @@ public class EditProfileFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.edit_profile_fragment, container, false);
-        return view;
+        return inflater.inflate(R.layout.edit_profile_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        // TODO заменить все на data binding
         _name = view.findViewById(R.id.name_view);
         _key = view.findViewById(R.id.key_view);
         _standard = view.findViewById(R.id.standard_button);
